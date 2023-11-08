@@ -1,0 +1,21 @@
+@keyframes viewitem{
+    0%{opacity: 0;}
+    60%{opacity: 0.40;}
+    100%{opacity: 1;}
+}
+@keyframes separateitem{
+    0%{margin-top: 0px;}
+    100%{margin-top: 10px;}
+} 
+
+
+p.bonjour{
+    font-size: 4em;
+    color: #878080;
+    margin: 0;
+    opacity: 0;
+    animation: viewitem 0.4s ease-in forwards;
+}
+.loadingbar{
+    animation: separateitem 0.2s ease-out 0.5s forwards, viewitem 0.5s ease-in 0.4s forwards;
+}
