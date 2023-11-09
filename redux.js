@@ -1,0 +1,1 @@
+// to do : une slice icone et une slice card
