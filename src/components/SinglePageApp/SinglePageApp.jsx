@@ -8,7 +8,8 @@ import Portrait from "@mui/icons-material/Portrait";
 import ViewKanban from "@mui/icons-material/ViewKanban";
 import File from "../File/File";
 import './styles/SinglePageApp.css'
-import { setCoordinates } from "../../../redux";
+import { setCoordinates, setRandomCoordinates } from "../../../redux";
+import { setCoord } from "../../utils/RandomCoordinates";
 
 
 export const APPS = {
@@ -23,9 +24,7 @@ export const APPS = {
 export default function SinglePageApp() {
   const coord = useSelector((state)=> state.icon)
   const dispatch = useDispatch()
-  const myref = useRef()
-
-  
+  const myref = useRef()  
 
 const handleDragOver = (event) => {
     event.preventDefault();
@@ -39,8 +38,8 @@ const handleDragOver = (event) => {
     console.log(`Element dropped: text - ${text}`);
     const transferredId = event.dataTransfer.getData('text');
     
-    const mouseX = event.clientX;
-    const mouseY = event.clientY;
+    const mouseX = event.clientX - 50;
+    const mouseY = event.clientY - 50;
 
     dispatch(setCoordinates({dragText: text, x: mouseX, y:mouseY}))
   };
@@ -48,6 +47,7 @@ const handleDragOver = (event) => {
 
   useEffect(() =>{
     const [maxwidth, maxheight] = [myref.current.clientWidth, myref.current.clientHeight-100]
+    dispatch(setRandomCoordinates({coordinates: setCoord()}))
   },[])
 
   
