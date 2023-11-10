@@ -2,4 +2,19 @@
     position: absolute;
     display: flex;
     flex-direction: column;
+    width: 500px;
+    height: 500px;
+}
+.pageBar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pageTitle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin-left: 5px;
 }

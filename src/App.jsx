@@ -1,19 +1,8 @@
 import * as React from "react"
-import { LinearProgress, createTheme, Box } from "@mui/material"
+import { LinearProgress, Box } from "@mui/material"
 import "./styles/App.css"
-import { grey } from "@mui/material/colors"
-import { ThemeProvider } from "@emotion/react"
 import { useNavigate } from "react-router-dom"
 
-export const theme = createTheme({
-  palette: {
-    primary: {
-      light: grey[50],
-      main: grey[600],
-      dark: grey[900],
-    },
-  },
-})
 
 function App() {
   const [progress, setProgress] = React.useState(0)
@@ -46,7 +35,6 @@ function App() {
 
   return (
     <>
-      <ThemeProvider theme={theme}>
             <Box
               display={"flex"}
               justifyContent={"center"}
@@ -69,8 +57,6 @@ function App() {
                 }}
               />
             </Box>
-
-      </ThemeProvider>
     </>
   )
 }

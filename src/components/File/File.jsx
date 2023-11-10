@@ -37,7 +37,7 @@ export default function File({minimized = false, children, text}) {
     onDoubleClick={handleDblClick}
     >
       {children && children}
-      <span>{text}</span>
+      {!minimized ? <span>{text}</span> : null}
     </div>
   )
 }

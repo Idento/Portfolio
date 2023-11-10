@@ -11,15 +11,16 @@ import './styles/SinglePageApp.css'
 import { setCoordinates, setCoordinatesPages, setRandomCoordinates } from "../../../redux";
 import { setCoord } from "../../utils/RandomCoordinates";
 import PortfolioCard from "../cards/PortfolioCard";
+import { AppBar } from "@mui/material";
 
 
 export const APPS = {
-  'Compétence': <QueryStats/>,
-  'Contact': <ContactPage/>,
-  'Parcours': <School/>,
-  "Centre d'intérêt" : <Games/>,
-  'Présentation': <Portrait/>,
-  'Projets': <ViewKanban/>
+  'Compétence': <QueryStats className="icon minimized"/>,
+  'Contact': <ContactPage className="icon minimized"/>,
+  'Parcours': <School className="icon minimized"/>,
+  "Centre d'intérêt" : <Games className="icon minimized"/>,
+  'Présentation': <Portrait className="icon minimized"/>,
+  'Projets': <ViewKanban className="icon minimized"/>
 }
 
 export default function SinglePageApp() {
@@ -64,5 +65,28 @@ const handleDragOver = (event) => {
         return <PortfolioCard text={v[0]} key={i}/>
       }
     })}
+
+     <AppBar 
+     position="fixed" 
+     color="primary" 
+     sx={{ top: 'auto', 
+      display: 'flex',
+      flexDirection: 'row',
+      bottom: 0, 
+      height:50, 
+      width: 1000, 
+      left: 0, 
+      right: 0, 
+      margin: 'auto', 
+      borderTopLeftRadius:2, 
+      borderTopRightRadius:2 }}>
+      
+        {page && Object.entries(page).map((v,i) => {
+          if(v[1].openedWindow){
+            const Icon = APPS[v[0]]
+            return Icon
+          }
+        })}
+     </AppBar>
   </div>)
 }
