@@ -23,10 +23,32 @@ const iconSlice = createSlice({
     }
 })
 
+const cardSlice = createSlice({
+    name: 'card',
+    initialState:{
+        'Compétence': {position :{ x: 500, y: 500 }, openedWindow: false},
+        'Contact': { position: { x: 500, y: 500 }, openedWindow: false },
+        'Parcours': { position: { x: 500, y: 500 }, openedWindow: false},
+        "Centre d'intérêt": { position: { x: 500, y: 500 }, openedWindow:false},
+        'Présentation': { position: { x: 500, y: 500 }, openedWindow: false},
+        'Projets': { position: { x: 500, y: 500 }, openedWindow: false}
+    },
+    reducers:{
+        setCoordinatesPages: (state, action) => {
+            state[action.payload.dragText].position = { x: action.payload.x, y: action.payload.y }
+        },
+        setToggleWindow: (state, action) => {
+            state[action.payload.Text].openedWindow = !state[action.payload.Text].openedWindow
+        }
+    }
+})
+
 export const store = configureStore({
     reducer: {
-        icon: iconSlice.reducer
+        icon: iconSlice.reducer,
+        card: cardSlice.reducer
     }
 })
 
 export const {setCoordinates, setRandomCoordinates} = iconSlice.actions
+export const {setCoordinatesPages, setToggleWindow} = cardSlice.actions
