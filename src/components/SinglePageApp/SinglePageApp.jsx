@@ -10,7 +10,6 @@ import File from "../File/File";
 import './styles/SinglePageApp.css'
 import { setCoordinates, setCoordinatesPages, setRandomCoordinates } from "../../../redux";
 import { setCoord } from "../../utils/RandomCoordinates";
-import CompetenceCard from "../cards/CompetenceCard";
 import PortfolioCard from "../cards/PortfolioCard";
 
 
@@ -36,15 +35,12 @@ const handleDragOver = (event) => {
     event.preventDefault();
     const text = event.dataTransfer.getData('text');
     const transferredPage = event.dataTransfer.getData('page')
-    
     const mouseX = event.clientX - 50;
     const mouseY = event.clientY - 50;
-
     transferredPage !== 'true' ?
       dispatch(setCoordinates({dragText: text, x: mouseX, y:mouseY}))
       :
       dispatch(setCoordinatesPages({dragText: text, x: mouseX, y:mouseY}))
-
   };
 
 
@@ -53,14 +49,20 @@ const handleDragOver = (event) => {
     dispatch(setRandomCoordinates({coordinates: setCoord()}))
   },[])
 
+
+
   
   return( 
   <div className="test" ref={myref} onDragOver={handleDragOver} onDrop={handleDrop}>
     {Object.entries(APPS).map((v, i) =>{
-      console.log(v);
       return <File text={v[0]} key={i}>
         {v[1]}
       </File>
+    })}
+    {Object.entries(page).map((v,i) => {
+      if(v[1].openedWindow){
+        return <PortfolioCard text={v[0]} key={i}/>
+      }
     })}
   </div>)
 }

@@ -5,6 +5,7 @@ import { setToggleWindow } from "../../../redux";
 
 export default function File({minimized = false, children, text}) {
   const [isDragging, setIsDragging] = useState(false);
+  const page = useSelector((state) => state.card)
   const coord = useSelector((state)=> state.icon)
   const dispatch = useDispatch()
   const dragRef = useRef(null);
@@ -19,8 +20,11 @@ export default function File({minimized = false, children, text}) {
   };
 
   function handleDblClick(e) {
-    e.preventdefault()
-    dispatch(setToggleWindow(text))
+    console.log("test");
+    if(!page[text].openedWindow){
+      dispatch(setToggleWindow({Text: text}))
+    }
+    
   }
 
   return (
