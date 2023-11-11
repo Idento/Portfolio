@@ -3,10 +3,9 @@ import './styles/File.css'
 import { useDispatch, useSelector } from "react-redux";
 import { setToggleWindow } from "../../../redux";
 
-export default function File({minimized = false, children, text}) {
+export default function File({minimized = false, children, text, x, y}) {
   const [isDragging, setIsDragging] = useState(false);
   const page = useSelector((state) => state.card)
-  const coord = useSelector((state)=> state.icon)
   const dispatch = useDispatch()
   const dragRef = useRef(null);
 
@@ -20,15 +19,13 @@ export default function File({minimized = false, children, text}) {
   };
 
   function handleDblClick(e) {
-    console.log("test");
     if(!page[text].openedWindow){
       dispatch(setToggleWindow({Text: text}))
     }
-    
   }
 
   return (
-    <div style={{top:coord[text].y, left:coord[text].x}} 
+    <div style={{top:y, left:x}} 
     className='file'
     ref={dragRef}
     draggable='true'
@@ -41,3 +38,5 @@ export default function File({minimized = false, children, text}) {
     </div>
   )
 }
+
+React.memo(File)

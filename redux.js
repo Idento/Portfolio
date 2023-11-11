@@ -26,12 +26,12 @@ const iconSlice = createSlice({
 const cardSlice = createSlice({
     name: 'card',
     initialState:{
-        'Compétence': {position :{ x: 500, y: 500 }, openedWindow: false},
-        'Contact': { position: { x: 500, y: 500 }, openedWindow: false },
-        'Parcours': { position: { x: 500, y: 500 }, openedWindow: false},
-        "Centre d'intérêt": { position: { x: 500, y: 500 }, openedWindow:false},
-        'Présentation': { position: { x: 500, y: 500 }, openedWindow: false},
-        'Projets': { position: { x: 500, y: 500 }, openedWindow: false}
+        'Compétence': {position :{ x: 500, y: 500 }, openedWindow: false, zindex:0},
+        'Contact': { position: { x: 500, y: 500 }, openedWindow: false, zindex: 0},
+        'Parcours': { position: { x: 500, y: 500 }, openedWindow: false, zindex: 0},
+        "Centre d'intérêt": { position: { x: 500, y: 500 }, openedWindow: false, zindex: 0},
+        'Présentation': { position: { x: 500, y: 500 }, openedWindow: false, zindex: 0},
+        'Projets': { position: { x: 500, y: 500 }, openedWindow: false, zindex: 0}
     },
     reducers:{
         setCoordinatesPages: (state, action) => {
@@ -39,6 +39,26 @@ const cardSlice = createSlice({
         },
         setToggleWindow: (state, action) => {
             state[action.payload.Text].openedWindow = !state[action.payload.Text].openedWindow
+        },
+        setZIndex: (state, action) => {
+            let opened = [];
+            for (const [key, value] of Object.entries(state)){
+                if (value.openedWindow){
+                    opened.push(value.openedWindow)
+                }
+            }
+            state[action.payload.Text].zindex = opened.length + 1
+        },
+        setOnTop: (state, action) => {
+            const actualStateIndex = state[action.payload.Text].zindex
+            let maxIndex = []
+            for (const [key, value] of Object.entries(state)){
+                maxIndex.push(value.zindex)
+                if (value.zindex > actualStateIndex){
+                    state[key].zindex -= 1;
+                }
+            }
+            state[action.payload.Text].zindex = Math.max(... maxIndex)
         }
     }
 })
@@ -51,4 +71,4 @@ export const store = configureStore({
 })
 
 export const {setCoordinates, setRandomCoordinates} = iconSlice.actions
-export const {setCoordinatesPages, setToggleWindow} = cardSlice.actions
+export const { setCoordinatesPages, setToggleWindow, setZIndex, setOnTop } = cardSlice.actions

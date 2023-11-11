@@ -1,10 +1,11 @@
-export function setCoord(){
+
+export function setCoord(maxw, maxh){
     const settingcoord = [];
     const gridSize = 60; // Taille de la grille
 
     // Imaginons que ces constantes représentent la taille maximale de l'espace
-    const maxwidth = 800;
-    const maxheight = 600;
+    let maxwidth = maxw;
+    let maxheight = maxh;
 
     // Génère 6 paires de coordonnées non chevauchantes
     for (let i = 0; i < 6; i++) {
