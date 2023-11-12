@@ -1,0 +1,94 @@
+{
+    "Projets":[
+        {
+            "id": "1",
+            "Titre": "Kasa",
+            "description": "Mon premier projet développé avec ReactJS, repose sur l'utilisation de React Router Dom pour créer une application dédiée à une agence immobilière. L'objectif principal était de concevoir des composants réutilisables afin de minimiser la redondance du code et d'offrir une expérience de navigation fluide en dirigeant les utilisateurs vers les pages pertinentes.",
+            "imageURL": "",
+            "tags": ["REACT", "SASS"],
+            "contexte": "Formation",
+            "link": "",
+            "date": "Juillet 2023"
+        },
+        {
+            "id": "2",
+            "Titre": "Sophie Bluel",
+            "description": "Projet de développement d'une page web dynamique en utilisant JavaScript. L'objectif central était de réaliser des appels API permettant une connexion en tant qu'administrateur sur le site, avec la possibilité d'ajouter de nouveaux projets à la vitrine existante.",
+            "imageURL": "",
+            "tags": ["HTML", "SASS", "JS"],
+            "contexte": "Formation",
+            "link": "",
+            "date": "Juin 2023"
+        },
+        {
+            "id": "3",
+            "Titre": "Site web personnel",
+            "description": "Projet de devellopement web creer en autodidacte, l'objectif etait de fournir des applications bureautique develloper en python en experimentant differente methode de rendu GUI",
+            "imageURL": "",
+            "tags": ["HTML", "CSS", "JS"],
+            "contexte": "Personnel",
+            "link": "",
+            "date": "Janvier 2023"
+        },
+        {
+            "id": "4",
+            "Titre": "Mariage",
+            "description": "Site web creer en autodidacte a l'occasion du mariage d'une amie.",
+            "imageURL": "",
+            "tags": ["HTML", "CSS", "JS"],
+            "contexte": "Personnel",
+            "link": "",
+            "date": "Janvier 2023"
+        },
+        {
+            "id": "5",
+            "Titre": "Horizon",
+            "description": "Projet de site web dévellopé pendant la formation, l'objectif était de fournir un site contemplatif par son affichage pouvant être minimiser avec des outils utiles",
+            "imageURL": "",
+            "tags": ["REACT", "SASS"],
+            "contexte": "Personnel",
+            "link": "",
+            "date": "Septembre 2023"
+        }
+    ],
+    "Presentation":{
+        "Nom": "TSOURI Maxime",
+        "Age" : 28,
+        "Courte presentation": "Animée par ma passion pour l'informatique depuis mon adolescence, je m'engage aujourd'hui dans une reconversion professionnelle vers le développement web, après un passage en tant que technicien informatique, j'ai réalisé que ma véritable passion réside dans le développement web. Cette expérience a été instructive, mais c'est maintenant dans le monde du code que je trouve ma véritable motivation et satisfaction professionnelle. Mon parcours reflète mon dévouement envers le monde de la technologie, et je suis enthousiaste à l'idée d'apporter ma passion et mes compétences au service de projets web innovants."
+    },
+    "Parcours":{
+        "Web": {
+            "Intitulé": "Formation OpenClassRoom 'Intégrateur Web'",
+            "Date" : "Avril 2023",
+            "type": "Formation professionnelle",
+            "statut":"En cours"
+        },
+        "Autre":[
+            {
+                "Intitulé": "Formation GMSI (Gestionnaire en Maintenance et Support Informatique",
+                "Date": "2019/2020",
+                "Type": "brevet de technicien supérieur (BTS) en alternance",
+                "Durée": "1 ans",
+                "Entreprise": "LFB Biomanufacturing"
+            }
+        ]
+    },
+    "Competence": {
+        "HTML": "85%",
+        "CSS": "90%",
+        "JavaScript": "60%",
+        "REACT": "70%",
+        "ReduxJS-Toolkit": "60%",
+        "GIT": "60%",
+        "Figma":"50%",
+        "Python":"60%"
+    },
+    "Passion": {
+        "JV": ["Star Citizen", "Minecraft", "Passionné par les jeux spatiaux et particulièrement fasciné par les jeux d'automatisation, j'apprécie les défis intellectuels qui se rapprochent de la logique du code."],
+        "Actualite": ["Spatial", "technologique", "La fascination pour l'actualité spatiale découle de l'impact considérable qu'elle a eu sur l'évolution de la technologie. C'est notamment grâce à ce domaine que les avancées technologiques ont été si significatives. En fin de compte, cela est étroitement lié à l'actualité technologique, une source d'inspiration pour moi."]
+    },
+    "Reseau":{
+        "Linkedin": "https://www.linkedin.com/in/maxime-t-abba4a188/"
+    }
+
+}

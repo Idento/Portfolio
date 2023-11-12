@@ -11,10 +11,12 @@ import { Close, Minimize } from '@mui/icons-material'
 import { useDispatch, useSelector } from 'react-redux'
 import { setOnTop, setToggleWindow, setZIndex, toggleMinimized, setCoordinatesPages } from "../../../redux";
 import './styles/CardStyle.css'
+import { useTheme } from '@emotion/react'
 
 export default function PortfolioCard({text, onDragMouseAlign, mobile = false}) {
   const [isDragging, setIsDragging] = useState(false);
   const nameCard = useSelector((state)=> state.card)
+  const theme = useTheme()
   const dispatch = useDispatch()
   const dragRef = useRef(null)
 
@@ -74,7 +76,7 @@ const APPSCARD = {
     onDragEnd={handleDragEnd}
     onClick={handleClick}
     >
-        <Card elevation={nameCard[text].zindex}>
+        <Card elevation={nameCard[text].zindex} sx={{color: theme.palette.primary.light}}>
           <div
             position='relative'
             className='pageBar'>
@@ -82,12 +84,12 @@ const APPSCARD = {
                     {text && React.cloneElement(APPS[text], {sx:{fontsize:20}})}
                     {text && text}
                 </div>
-                <ButtonGroup variant='text' aria-label="outlined button group">
+                <ButtonGroup variant='text' aria-label="text button group" sx={{color:'white'}} >
                     <IconButton aria-label='minimize' onClick={() => {dispatch(toggleMinimized({Text:text}))}}>
                         <Minimize />
                     </IconButton>
-                    <IconButton aria-label='close' onClick={handleCloseClick}>
-                        <Close/>
+                    <IconButton aria-label='close' onClick={handleCloseClick} >
+                        <Close />
                     </IconButton>
                 </ButtonGroup>
           </div>

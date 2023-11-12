@@ -47,13 +47,14 @@ export default function SinglePageApp() {
       display: 'flex',
       flexDirection: 'row',
       bottom: 0, 
-      height:40, 
+      height:45, 
       width: 1000, 
       left: 0, 
       right: 0, 
       margin: 'auto', 
       borderTopLeftRadius:2, 
-      borderTopRightRadius:2}
+      borderTopRightRadius:2,
+      bckgroundColor: '#424242'}
   }
   const myref = useRef()
   let [alignX, alignY] = []
@@ -62,11 +63,7 @@ export default function SinglePageApp() {
   const handleMouseAlign = (x, y) => {
     [alignX, alignY] = [x, y]
   }
-
-  function handleTouchIcon(){
-    dispatch(setOnTop({Text:v[0]}))
-  }
-
+  
   function handleHomeIcon(){
     for (const [key, value] of Object.entries(page)){
       if (value.openedWindow && !value.minimize){
@@ -77,7 +74,10 @@ export default function SinglePageApp() {
 
 const handleDragOver = (event) => {
     event.preventDefault();
-    dispatch(setOnTop({Text: event.dataTransfer.getData('text')}))
+    const severalOpenedWindowTest = Object.entries(page).filter((e) => e[1].openedWindow).length
+    if (severalOpenedWindowTest > 1){
+      dispatch(setOnTop({Text: event.dataTransfer.getData('text')}))
+    }
     // DragItem(event, maxh, maxw,dispatch)
   };
 
@@ -129,7 +129,7 @@ const handleDragOver = (event) => {
             const Icon = APPS[v[0]]
             return <div onClick={() => {dispatch(toggleMinimized({Text:v[0]}))}} 
                         key={i}
-                        onTouchStart={handleTouchIcon}>
+                        onTouchStart={() => {dispatch(setOnTop({Text:v[0]}))}}>
               {Icon}
             </div>
           }

@@ -17,11 +17,14 @@
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    margin-left: 5%;
     gap: 5%;
-    width: 85%;
+    width: 100%;
+    margin: 0% 1%;
     height: 100%;
+    background-color: #000000;
     @media (max-width: 1025px) {
+        width: 85%;
+        margin-left: 5%;
         .MuiSvgIcon-root{
             font-size: 35px;
         }      

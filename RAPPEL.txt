@@ -10,6 +10,6 @@ export const APPS = {
 dragitem.js => modification des import setcoordinates et setcoordinatesPages par des argument dans la fonction.
 
 A FAIRE: - Toutes les pages
-         - Version Mobile
+         - Version Mobile (fonctionnaliter fait, manque css a la fin)
          - Animation
          - CSS
