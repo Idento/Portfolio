@@ -3,3 +3,27 @@
     width: 100%;
     background-color: rgb(226, 224, 208);
 }
+.homebarMobile{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 15%;
+    position: relative;
+}
+.iconPageOnBar{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 5%;
+    gap: 5%;
+    width: 85%;
+    height: 100%;
+    @media (max-width: 1025px) {
+        .MuiSvgIcon-root{
+            font-size: 35px;
+        }      
+    }
+}

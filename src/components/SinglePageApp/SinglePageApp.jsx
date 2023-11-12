@@ -6,13 +6,15 @@ import School from "@mui/icons-material/School";
 import Games from "@mui/icons-material/Games";
 import Portrait from "@mui/icons-material/Portrait";
 import ViewKanban from "@mui/icons-material/ViewKanban";
+import Home  from "@mui/icons-material/Home";
 import File from "../File/File";
 import './styles/SinglePageApp.css'
 import { setCoordinatesPages,setCoordinates,setOnTop, setRandomCoordinates, toggleMinimized } from "../../../redux";
 import { setCoord } from "../../utils/RandomCoordinates";
 import PortfolioCard from "../cards/PortfolioCard";
-import { AppBar } from "@mui/material";
+import { AppBar, Divider } from "@mui/material";
 import DragItem from "../../utils/dragitems";
+import { useTheme } from "@mui/material/styles";
 
 
 
@@ -29,12 +31,48 @@ export default function SinglePageApp() {
   const page = useSelector((state) => state.card)
   const coord = useSelector((state)=> state.icon)
   const [maxCoord, setMaxCoord] =  useState()
+  const [isMobile, setIsMobile] = useState(false)
   const dispatch = useDispatch()
+  const theme = useTheme()
+  const appBarProperties = {
+    mobile: {
+      top: 'auto', 
+      bottom: 0, 
+      display: 'flex',
+      flexDirection: 'row',
+      height: '7%', 
+      width: '100%',
+    },
+    other: { top: 'auto', 
+      display: 'flex',
+      flexDirection: 'row',
+      bottom: 0, 
+      height:40, 
+      width: 1000, 
+      left: 0, 
+      right: 0, 
+      margin: 'auto', 
+      borderTopLeftRadius:2, 
+      borderTopRightRadius:2}
+  }
   const myref = useRef()
   let [alignX, alignY] = []
+
   
   const handleMouseAlign = (x, y) => {
-    return [alignX, alignY] = [x, y]
+    [alignX, alignY] = [x, y]
+  }
+
+  function handleTouchIcon(){
+    dispatch(setOnTop({Text:v[0]}))
+  }
+
+  function handleHomeIcon(){
+    for (const [key, value] of Object.entries(page)){
+      if (value.openedWindow && !value.minimize){
+        dispatch(toggleMinimized({Text:key}))
+      }
+    }
   }
 
 const handleDragOver = (event) => {
@@ -52,46 +90,51 @@ const handleDragOver = (event) => {
   useEffect(() =>{
     const [maxwidth, maxheight] = [myref.current.clientWidth, myref.current.clientHeight-100]
     setMaxCoord({maxh: maxheight, maxw: maxwidth})
-    dispatch(setRandomCoordinates({coordinates: setCoord(maxwidth, maxheight)}))
+    if (maxwidth <= 1280){
+      setIsMobile(true)
+    }else {
+      dispatch(setRandomCoordinates({coordinates: setCoord(maxwidth, maxheight)}))
+    }
+
   },[])
 
   
   return( 
   <div className="test" ref={myref} onDragOver={handleDragOver} onDrop={handleDrop}>
     {Object.entries(APPS).map((v, i) =>{
-      return <File text={v[0]} key={i} x={coord[v[0]].x} y={coord[v[0]].y}>
+      return <File text={v[0]} key={i} x={!isMobile ? coord[v[0]].x : 'auto'} y={!isMobile ? coord[v[0]].y : 'auto'} >
         {v[1]}
       </File>
     })}
     {Object.entries(page).map((v,i) => {
       if(v[1].openedWindow){
-        return <PortfolioCard text={v[0]} key={i} onDragMouseAlign={handleMouseAlign}/>
+        return <PortfolioCard text={v[0]} key={i+10} onDragMouseAlign={handleMouseAlign} mobile={isMobile}/>
       }
     })}
 
      <AppBar 
      position="fixed" 
      color="primary" 
-     sx={{ top: 'auto', 
-      display: 'flex',
-      flexDirection: 'row',
-      bottom: 0, 
-      height:40, 
-      width: 1000, 
-      left: 0, 
-      right: 0, 
-      margin: 'auto', 
-      borderTopLeftRadius:2, 
-      borderTopRightRadius:2 }}>
-      
-        {page && Object.entries(page).map((v,i) => {
+     sx={isMobile ? appBarProperties.mobile : appBarProperties.other}>
+
+        {isMobile ? 
+        <div onTouchStart={handleHomeIcon} className="homebarMobile">
+          <Home sx={{fontSize:35}}/>
+          <Divider orientation="vertical" sx={{marginRight: '10px', bgcolor: theme.palette.primary.light, position:'absolute', right:0, left:'100%'}}/>
+        </div> : null}
+
+       <div className="iconPageOnBar">
+         {page && Object.entries(page).map((v,i) => {
           if(v[1].openedWindow){
             const Icon = APPS[v[0]]
-            return <div onClick={() => {dispatch(toggleMinimized({Text:v[0]}))}}>
+            return <div onClick={() => {dispatch(toggleMinimized({Text:v[0]}))}} 
+                        key={i}
+                        onTouchStart={handleTouchIcon}>
               {Icon}
             </div>
           }
         })}
+       </div>
      </AppBar>
   </div>)
 }

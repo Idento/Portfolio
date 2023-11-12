@@ -3,7 +3,7 @@ import './styles/File.css'
 import { useDispatch, useSelector } from "react-redux";
 import { setToggleWindow } from "../../../redux";
 
-export default function File({minimized = false, children, text, x, y}) {
+export default function File({children, text, x, y}) {
   const [isDragging, setIsDragging] = useState(false);
   const page = useSelector((state) => state.card)
   const dispatch = useDispatch()
@@ -24,6 +24,12 @@ export default function File({minimized = false, children, text, x, y}) {
     }
   }
 
+  function handleTouch(){
+    if(!page[text].openedWindow){
+      dispatch(setToggleWindow({Text: text}))
+    }
+  }
+
   return (
     <div style={{top:y, left:x}} 
     className='file'
@@ -32,9 +38,10 @@ export default function File({minimized = false, children, text, x, y}) {
     onDragStart={handleDragStart}
     onDragEnd={handleDragEnd}
     onDoubleClick={handleDblClick}
+    onTouchStart={handleTouch}
     >
       {children && children}
-      {!minimized ? <span>{text}</span> : null}
+      <span>{text}</span>
     </div>
   )
 }

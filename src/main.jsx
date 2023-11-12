@@ -9,7 +9,7 @@ import SinglePageApp from "./components/SinglePageApp/SinglePageApp.jsx";
 import { grey } from "@mui/material/colors";
 import { createTheme, ThemeProvider } from "@mui/material";
 
-export const theme = createTheme({
+const theme = createTheme({
   palette: {
     primary: {
       light: grey[50],
@@ -17,6 +17,15 @@ export const theme = createTheme({
       dark: grey[900],
     },
   },
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 700,
+      md: 960,
+      lg: 1280,
+      xl: 1920,
+    },
+  }
 })
 
 ReactDOM.createRoot(document.getElementById("root")).render(

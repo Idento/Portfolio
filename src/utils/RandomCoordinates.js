@@ -28,6 +28,7 @@ function generateNonOverlappingCoordinates(existingCoords, gridSize, maxwidth, m
         // Calcule de nouvelles coordonnées basées sur une grille
         newX = Math.floor(Math.random() * maxX / gridSize) * gridSize;
         newY = Math.floor(Math.random() * maxY / gridSize) * gridSize;
+        console.log(newX, newY);
     } while (existingCoords.some(coord => isTooClose(coord, { x: newX, y: newY }, gridSize)));
 
     return { x: newX, y: newY };

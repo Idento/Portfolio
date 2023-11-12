@@ -9,10 +9,10 @@ import { ButtonGroup, Card, IconButton } from '@mui/material'
 import { APPS } from '../SinglePageApp/SinglePageApp'
 import { Close, Minimize } from '@mui/icons-material'
 import { useDispatch, useSelector } from 'react-redux'
-import { setOnTop, setToggleWindow, setZIndex, toggleMinimized } from "../../../redux";
+import { setOnTop, setToggleWindow, setZIndex, toggleMinimized, setCoordinatesPages } from "../../../redux";
 import './styles/CardStyle.css'
 
-export default function PortfolioCard({text, onDragMouseAlign, handleGetMinimized}) {
+export default function PortfolioCard({text, onDragMouseAlign, mobile = false}) {
   const [isDragging, setIsDragging] = useState(false);
   const nameCard = useSelector((state)=> state.card)
   const dispatch = useDispatch()
@@ -28,6 +28,9 @@ const APPSCARD = {
 }
 
   useEffect(() => {
+    if (mobile){
+      dispatch(setCoordinatesPages({dragText: text,x:0,y:0}))
+    }
     dispatch(setZIndex({Text: text}))
   },[])
 
@@ -38,7 +41,7 @@ const APPSCARD = {
     const mouseY = event.clientY  - top;
     onDragMouseAlign(mouseX, mouseY)
     event.dataTransfer.setData('text', text);
-    event.dataTransfer.setData('page', true)
+    event.dataTransfer.setData('page', true);
     const severalOpenedWindowTest = Object.entries(nameCard).filter((e) => e.openedWindow).length
     if (severalOpenedWindowTest > 1){
       dispatch(setOnTop({Text: text}))
@@ -56,7 +59,6 @@ const APPSCARD = {
 
   function handleClick(e){
     e.preventDefault()
-    console.log('test');
     const severalOpenedWindowTest = Object.entries(nameCard).filter((e) => e[1].openedWindow).length
     if (severalOpenedWindowTest > 1){
       dispatch(setOnTop({Text: text}))
@@ -73,7 +75,7 @@ const APPSCARD = {
     onClick={handleClick}
     >
         <Card elevation={nameCard[text].zindex}>
-            <div
+          <div
             position='relative'
             className='pageBar'>
                 <div className='pageTitle'>
@@ -88,7 +90,7 @@ const APPSCARD = {
                         <Close/>
                     </IconButton>
                 </ButtonGroup>
-            </div>
+          </div>
             {APPSCARD && APPSCARD[text]}
         </Card>
     </div>
