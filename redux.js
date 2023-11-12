@@ -26,12 +26,12 @@ const iconSlice = createSlice({
 const cardSlice = createSlice({
     name: 'card',
     initialState:{
-        'Compétence': {position :{ x: 500, y: 500 }, openedWindow: false, zindex:0},
-        'Contact': { position: { x: 500, y: 500 }, openedWindow: false, zindex: 0},
-        'Parcours': { position: { x: 500, y: 500 }, openedWindow: false, zindex: 0},
-        "Centre d'intérêt": { position: { x: 500, y: 500 }, openedWindow: false, zindex: 0},
-        'Présentation': { position: { x: 500, y: 500 }, openedWindow: false, zindex: 0},
-        'Projets': { position: { x: 500, y: 500 }, openedWindow: false, zindex: 0}
+        'Compétence': {position :{ x: 500, y: 500 }, openedWindow: false, zindex:0, minimize: false},
+        'Contact': { position: { x: 500, y: 500 }, openedWindow: false, zindex: 0, minimize: false },
+        'Parcours': { position: { x: 500, y: 500 }, openedWindow: false, zindex: 0, minimize: false },
+        "Centre d'intérêt": { position: { x: 500, y: 500 }, openedWindow: false, zindex: 0, minimize: false },
+        'Présentation': { position: { x: 500, y: 500 }, openedWindow: false, zindex: 0, minimize: false },
+        'Projets': { position: { x: 500, y: 500 }, openedWindow: false, zindex: 0, minimize: false }
     },
     reducers:{
         setCoordinatesPages: (state, action) => {
@@ -59,6 +59,9 @@ const cardSlice = createSlice({
                 }
             }
             state[action.payload.Text].zindex = Math.max(... maxIndex)
+        },
+        toggleMinimized: (state, action) => {
+            state[action.payload.Text].minimize = !state[action.payload.Text].minimize
         }
     }
 })
@@ -71,4 +74,4 @@ export const store = configureStore({
 })
 
 export const {setCoordinates, setRandomCoordinates} = iconSlice.actions
-export const { setCoordinatesPages, setToggleWindow, setZIndex, setOnTop } = cardSlice.actions
+export const { setCoordinatesPages, setToggleWindow, setZIndex, setOnTop, toggleMinimized } = cardSlice.actions

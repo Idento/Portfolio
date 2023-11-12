@@ -8,11 +8,12 @@ import Portrait from "@mui/icons-material/Portrait";
 import ViewKanban from "@mui/icons-material/ViewKanban";
 import File from "../File/File";
 import './styles/SinglePageApp.css'
-import { setOnTop, setRandomCoordinates } from "../../../redux";
+import { setCoordinatesPages,setCoordinates,setOnTop, setRandomCoordinates, toggleMinimized } from "../../../redux";
 import { setCoord } from "../../utils/RandomCoordinates";
 import PortfolioCard from "../cards/PortfolioCard";
 import { AppBar } from "@mui/material";
 import DragItem from "../../utils/dragitems";
+
 
 
 export const APPS = {
@@ -44,7 +45,7 @@ const handleDragOver = (event) => {
 
   const handleDrop = (event) => {
     event.preventDefault();
-    DragItem(event, maxCoord.maxh, maxCoord.maxw, dispatch, alignX, alignY)
+    DragItem(event, maxCoord.maxh, maxCoord.maxw, dispatch, alignX, alignY, setCoordinates, setCoordinatesPages)
   };
 
 
@@ -86,7 +87,9 @@ const handleDragOver = (event) => {
         {page && Object.entries(page).map((v,i) => {
           if(v[1].openedWindow){
             const Icon = APPS[v[0]]
-            return Icon
+            return <div onClick={() => {dispatch(toggleMinimized({Text:v[0]}))}}>
+              {Icon}
+            </div>
           }
         })}
      </AppBar>

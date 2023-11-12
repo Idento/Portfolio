@@ -1,0 +1,15 @@
+export const APPS = {
+  'Compétence': {icon:<QueryStats/>, page: <CompetenceCard/>},
+  'Contact': {icon: <ContactPage/>, page: <ContactCard/>},
+  'Parcours': {icon: <School/>, page: <ParcoursCard />},
+  "Centre d'intérêt" : {icon: <Games/>, page: <PassionCard/>},
+  'Présentation': {icon: <Portrait/>, page: <PresentationCard/>},
+  'Projets': {icon: <ViewKanban/>, page: <ProjetsCard/>}
+}
+
+dragitem.js => modification des import setcoordinates et setcoordinatesPages par des argument dans la fonction.
+
+A FAIRE: - Toutes les pages
+         - Version Mobile
+         - Animation
+         - CSS

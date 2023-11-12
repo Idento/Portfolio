@@ -1,6 +1,5 @@
 .portfolioCard{
     position: absolute;
-    display: flex;
     flex-direction: column;
     width: 500px;
     height: 500px;
@@ -17,4 +16,12 @@
     align-items: center;
     gap: 5px;
     margin-left: 5px;
+}
+
+.minimize{
+    display: none;
+}
+
+.up{
+    display: flex;
 }

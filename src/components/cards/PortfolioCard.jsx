@@ -9,10 +9,10 @@ import { ButtonGroup, Card, IconButton } from '@mui/material'
 import { APPS } from '../SinglePageApp/SinglePageApp'
 import { Close, Minimize } from '@mui/icons-material'
 import { useDispatch, useSelector } from 'react-redux'
-import { setOnTop, setToggleWindow, setZIndex } from "../../../redux";
+import { setOnTop, setToggleWindow, setZIndex, toggleMinimized } from "../../../redux";
 import './styles/CardStyle.css'
 
-export default function PortfolioCard({text, onDragMouseAlign}) {
+export default function PortfolioCard({text, onDragMouseAlign, handleGetMinimized}) {
   const [isDragging, setIsDragging] = useState(false);
   const nameCard = useSelector((state)=> state.card)
   const dispatch = useDispatch()
@@ -64,7 +64,7 @@ const APPSCARD = {
   }
 
   return (
-    <div className='portfolioCard'
+    <div className={`portfolioCard ${nameCard[text].minimize ? 'minimize' : 'up'}`}
     ref={dragRef}
     style={{top:nameCard[text].position.y, left:nameCard[text].position.x, zIndex: nameCard[text].zindex}}
     draggable='true'
@@ -81,7 +81,7 @@ const APPSCARD = {
                     {text && text}
                 </div>
                 <ButtonGroup variant='text' aria-label="outlined button group">
-                    <IconButton aria-label='minimize'>
+                    <IconButton aria-label='minimize' onClick={() => {dispatch(toggleMinimized({Text:text}))}}>
                         <Minimize />
                     </IconButton>
                     <IconButton aria-label='close' onClick={handleCloseClick}>

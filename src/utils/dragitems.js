@@ -1,6 +1,5 @@
-import { setCoordinates, setCoordinatesPages } from "../../redux";
 
-export default function DragItem(event, maxh, maxw, dispatch, alignX = 0, alignY=0){
+export default function DragItem(event, maxh, maxw, dispatch, alignX = 0, alignY=0, setCoordinates, setCoordinatesPages){
     const text = event.dataTransfer.getData('text');
     const transferredPage = event.dataTransfer.getData('page')
     let mouseX = event.clientX;
