@@ -43,7 +43,7 @@ export default function CompetenceCard() {
       {textGenerated ? 
       <Box display={'flex'} flexDirection={'column'} gap={'20px'} padding={'5% 5%'} justifyContent={'center'} width={'100%'}>
         <Card variant='outlined' sx={cardStyle}>
-          <h3>Language</h3>
+          <h3>Language / Framework / Base de donnée</h3>
           <Divider sx={dividerStyle} />
           {data && Object.entries(data.Language).map((v, i)=>{
             return <LinearProgresswLabel text={v[0].toString()} maxProgress={v[1].value} key={`L${i}`} image={v[1].icon}/>
@@ -65,3 +65,4 @@ export default function CompetenceCard() {
     </div>
   )
 }
+React.memo(CompetenceCard)

@@ -40,6 +40,7 @@
     align-items: center;
     padding: 2% 2%;
     border-radius: 30px;
+    margin-bottom: 1%;
     gap: 10%;
     a{
         position: absolute;

@@ -83,9 +83,17 @@
                 "value":90, 
                 "icon": "src/assets/css3.svg"
             },
+            "SASS":{
+                "value":60,
+                "icon":"src/assets/sass.svg"
+            },
             "JavaScript": {
                 "value": 60,
                 "icon": "src/assets/js.svg"
+            },
+            "Python": {
+                "value": 60,
+                "icon": "src/assets/python.svg"
             },
             "REACT": {
                 "value": 70,
@@ -95,9 +103,9 @@
                 "value": 60,
                 "icon": "src/assets/redux-icon.svg"
             },
-            "Python": {
-                "value": 60,
-                "icon": "src/assets/python.svg"
+            "SQLite":{
+                "value":70,
+                "icon":"src/assets/sqlite-icon.svg"
             }
         },
         "Autres": {
@@ -108,12 +116,17 @@
             "Figma": {
                 "value": 30,
                 "icon": "src/assets/figma.svg"
+            },
+            "Responsive":{
+                "value": 90,
+                "icon":"src/assets/tablet-screen-button-solid.svg"
             }
         }
     },
     "Passion": {
-        "JV": ["Star Citizen", "Minecraft", "Passionné par les jeux spatiaux et particulièrement fasciné par les jeux d'automatisation, j'apprécie les défis intellectuels qui se rapprochent de la logique du code."],
-        "Actualite": ["Spatial", "technologique", "La fascination pour l'actualité spatiale découle de l'impact considérable qu'elle a eu sur l'évolution de la technologie. C'est notamment grâce à ce domaine que les avancées technologiques ont été si significatives. En fin de compte, cela est étroitement lié à l'actualité technologique, une source d'inspiration pour moi."]
+        "Technologie": "Fasciné par la technologie depuis l'adolescence, j'ai un profond intérêt pour l'actualité mettant en lumière les dernières innovations. J'expérimente régulièrement de nouvelles choses, telles que la mise en place de NAS à domicile, la domotique et l'automatisation par scripts.",
+        "Jeux video": "Principalement attiré par les jeux d'automatisation et les jeux en groupe, ma passion pour les jeux vidéo va au-delà de la simple évasion. Dans les jeux d'automatisation, la gestion de défis approche le domaine du codage, tandis que dans les jeux de groupe, je trouve l'opportunité de rencontrer des individus de divers milieux, favorisant ainsi l'apprentissage mutuel.",
+        "Autre": "Je me consacre occasionnellement à la création 3D lorsque l'inspiration me vient"
     },
     "Reseau":{
         "Linkedin": {

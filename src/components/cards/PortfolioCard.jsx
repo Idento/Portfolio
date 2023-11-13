@@ -93,7 +93,7 @@ const APPSCARD = {
                     </IconButton>
                 </ButtonGroup>
           </div>
-            {APPSCARD && APPSCARD[text]}
+            {APPSCARD && (APPSCARD[text])}
         </Card>
     </div>
   )

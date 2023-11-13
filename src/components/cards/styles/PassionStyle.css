@@ -1,0 +1,23 @@
+.hobbyContainer{
+    width: 500px;
+    height: 100%;
+    background: #222222;
+    padding: 3% 3%;
+    box-sizing: border-box;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h3{
+        margin: 3%;
+    }
+    p{
+        text-align: left;
+        padding-left: 1%;
+        letter-spacing: 0.1em;
+        font-size: 15px;
+        line-height: 24px;
+        text-indent: 10px;
+    }
+}
