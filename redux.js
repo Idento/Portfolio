@@ -66,12 +66,24 @@ const cardSlice = createSlice({
     }
 })
 
+const dataSlice = createSlice({
+    name: 'data',
+    initialState:{},
+    reducers:{
+        setData: (state, action) => {
+            return action.payload
+        }
+    }
+})
+
 export const store = configureStore({
     reducer: {
         icon: iconSlice.reducer,
-        card: cardSlice.reducer
+        card: cardSlice.reducer,
+        data: dataSlice.reducer
     }
 })
 
 export const {setCoordinates, setRandomCoordinates} = iconSlice.actions
 export const { setCoordinatesPages, setToggleWindow, setZIndex, setOnTop, toggleMinimized } = cardSlice.actions
+export const {setData} = dataSlice.actions

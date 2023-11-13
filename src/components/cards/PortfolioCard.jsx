@@ -84,12 +84,12 @@ const APPSCARD = {
                     {text && React.cloneElement(APPS[text], {sx:{fontsize:20}})}
                     {text && text}
                 </div>
-                <ButtonGroup variant='text' aria-label="text button group" sx={{color:'white'}} >
+                <ButtonGroup variant='text' aria-label="text button group" >
                     <IconButton aria-label='minimize' onClick={() => {dispatch(toggleMinimized({Text:text}))}}>
-                        <Minimize />
+                        <Minimize sx={{color:'white'}}/>
                     </IconButton>
-                    <IconButton aria-label='close' onClick={handleCloseClick} >
-                        <Close />
+                    <IconButton aria-label='close' onClick={handleCloseClick}>
+                        <Close sx={{color:'white'}}/>
                     </IconButton>
                 </ButtonGroup>
           </div>

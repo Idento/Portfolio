@@ -1,8 +1,6 @@
 .portfolioCard{
     position: absolute;
     flex-direction: column;
-    width: 50%;
-    height: 70%;
     @media (max-width: 1025px){
         width: 100%;
         height: 95%;
@@ -16,6 +14,9 @@
     justify-content: space-between;
     align-items: center;
     background-color: #424242;
+    .MuiIconButton-Root{
+        color: white;
+    }
 }
 
 .pageTitle{

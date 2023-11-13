@@ -2,13 +2,31 @@ import * as React from "react"
 import { LinearProgress, Box } from "@mui/material"
 import "./styles/App.css"
 import { useNavigate } from "react-router-dom"
+import { useDispatch } from "react-redux"
+import { setData } from "../redux"
 
 
 function App() {
   const [progress, setProgress] = React.useState(0)
   const navigate = useNavigate()
+  const dispatch = useDispatch()
 
   React.useEffect(() => {
+    fetch('../data.json',
+  {
+    headers:{
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    }
+  }
+  )
+  .then(function(response){
+    console.log(response);
+    return response.json();
+  })
+  .then(function(jsondata){
+    dispatch(setData(jsondata))
+  })
     const progressBarProgression = setInterval(() => {
       setProgress(oldProgress => {
         if (oldProgress < 100) {

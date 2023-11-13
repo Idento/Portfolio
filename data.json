@@ -74,21 +74,56 @@
         ]
     },
     "Competence": {
-        "HTML": "85%",
-        "CSS": "90%",
-        "JavaScript": "60%",
-        "REACT": "70%",
-        "ReduxJS-Toolkit": "60%",
-        "GIT": "60%",
-        "Figma":"50%",
-        "Python":"60%"
+        "Language": {
+            "HTML": {
+                "value": 85,
+                "icon":"src/assets/html5.svg"
+            },
+            "CSS": {
+                "value":90, 
+                "icon": "src/assets/css3.svg"
+            },
+            "JavaScript": {
+                "value": 60,
+                "icon": "src/assets/js.svg"
+            },
+            "REACT": {
+                "value": 70,
+                "icon": "src/assets/react.svg"
+            },
+            "ReduxJS-Toolkit": {
+                "value": 60,
+                "icon": "src/assets/redux-icon.svg"
+            },
+            "Python": {
+                "value": 60,
+                "icon": "src/assets/python.svg"
+            }
+        },
+        "Autres": {
+            "GIT": {
+                "value": 60,
+                "icon": "src/assets/github.svg"
+            },
+            "Figma": {
+                "value": 30,
+                "icon": "src/assets/figma.svg"
+            }
+        }
     },
     "Passion": {
         "JV": ["Star Citizen", "Minecraft", "Passionné par les jeux spatiaux et particulièrement fasciné par les jeux d'automatisation, j'apprécie les défis intellectuels qui se rapprochent de la logique du code."],
         "Actualite": ["Spatial", "technologique", "La fascination pour l'actualité spatiale découle de l'impact considérable qu'elle a eu sur l'évolution de la technologie. C'est notamment grâce à ce domaine que les avancées technologiques ont été si significatives. En fin de compte, cela est étroitement lié à l'actualité technologique, une source d'inspiration pour moi."]
     },
     "Reseau":{
-        "Linkedin": "https://www.linkedin.com/in/maxime-t-abba4a188/"
+        "Linkedin": {
+            "url":"https://www.linkedin.com/in/maxime-t-abba4a188/",
+            "icon": "src/assets/linkedin.svg"
+        },
+        "Discord": {
+            "url": "https://discord.gg/mjxSuUZ5yM",
+            "icon": "src/assets/discord.svg"
+        }
     }
 
 }
