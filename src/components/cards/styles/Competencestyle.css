@@ -1,4 +1,4 @@
-.container{
+.container {
     display: flex;
     justify-content: center;
     width: 500px;
@@ -6,9 +6,11 @@
     background: #222222;
     padding: 2% 0%;
     box-sizing: border-box;
-    h1{
+
+    h1 {
         margin: 0;
     }
+
     @media (max-width: 500px) {
         width: 100%;
     }

@@ -13,40 +13,40 @@ import { setOnTop, setToggleWindow, setZIndex, toggleMinimized, setCoordinatesPa
 import './styles/CardStyle.css'
 import { useTheme } from '@emotion/react'
 
-export default function PortfolioCard({text, onDragMouseAlign, mobile = false}) {
+export default function PortfolioCard({ text, onDragMouseAlign, mobile = false }) {
   const [isDragging, setIsDragging] = useState(false);
-  const nameCard = useSelector((state)=> state.card)
+  const nameCard = useSelector((state) => state.card)
   const theme = useTheme()
   const dispatch = useDispatch()
   const dragRef = useRef(null)
 
-const APPSCARD = {
-  'Compétence': <CompetenceCard/>,
-  'Contact': <ContactCard/>,
-  'Parcours': <ParcoursCard/>,
-  "Centre d'intérêt" : <PassionCard/>,
-  'Présentation': <PresentationCard/>,
-  'Projets': <ProjetsCard/>
-}
+  const APPSCARD = {
+    'Compétence': <CompetenceCard />,
+    'Contact': <ContactCard />,
+    'Parcours': <ParcoursCard />,
+    "Centre d'intérêt": <PassionCard />,
+    'Présentation': <PresentationCard />,
+    'Projets': <ProjetsCard />
+  }
 
   useEffect(() => {
-    if (mobile){
-      dispatch(setCoordinatesPages({dragText: text,x:0,y:0}))
+    if (mobile) {
+      dispatch(setCoordinatesPages({ dragText: text, x: 0, y: 0 }))
     }
-    dispatch(setZIndex({Text: text}))
-  },[])
+    dispatch(setZIndex({ Text: text }))
+  }, [])
 
   const handleDragStart = (event) => {
     setIsDragging(true);
     const { top, left } = event.target.getBoundingClientRect();
     const mouseX = event.clientX - left;
-    const mouseY = event.clientY  - top;
+    const mouseY = event.clientY - top;
     onDragMouseAlign(mouseX, mouseY)
     event.dataTransfer.setData('text', text);
     event.dataTransfer.setData('page', true);
     const severalOpenedWindowTest = Object.entries(nameCard).filter((e) => e.openedWindow).length
-    if (severalOpenedWindowTest > 1){
-      dispatch(setOnTop({Text: text}))
+    if (severalOpenedWindowTest > 1) {
+      dispatch(setOnTop({ Text: text }))
     }
   };
 
@@ -54,47 +54,47 @@ const APPSCARD = {
     setIsDragging(false);
   };
 
-  function handleCloseClick(e){
+  function handleCloseClick(e) {
     e.preventDefault()
-    dispatch(setToggleWindow({Text: text}))
+    dispatch(setToggleWindow({ Text: text }))
   }
 
-  function handleClick(e){
+  function handleClick(e) {
     e.preventDefault()
     const severalOpenedWindowTest = Object.entries(nameCard).filter((e) => e[1].openedWindow).length
-    if (severalOpenedWindowTest > 1){
-      dispatch(setOnTop({Text: text}))
+    if (severalOpenedWindowTest > 1) {
+      dispatch(setOnTop({ Text: text }))
     }
   }
 
   return (
     <div className={`portfolioCard ${nameCard[text].minimize ? 'minimize' : 'up'}`}
-    ref={dragRef}
-    style={{top:nameCard[text].position.y, left:nameCard[text].position.x, zIndex: nameCard[text].zindex}}
-    draggable='true'
-    onDragStart={handleDragStart}
-    onDragEnd={handleDragEnd}
-    onClick={handleClick}
+      ref={dragRef}
+      style={{ top: nameCard[text].position.y, left: nameCard[text].position.x, zIndex: nameCard[text].zindex }}
+      draggable='true'
+      onDragStart={handleDragStart}
+      onDragEnd={handleDragEnd}
+      onClick={handleClick}
     >
-        <Card elevation={nameCard[text].zindex} sx={{color: theme.palette.primary.light}}>
-          <div
-            position='relative'
-            className='pageBar'>
-                <div className='pageTitle'>
-                    {text && React.cloneElement(APPS[text], {sx:{fontsize:20}})}
-                    {text && text}
-                </div>
-                <ButtonGroup variant='text' aria-label="text button group" >
-                    <IconButton aria-label='minimize' onClick={() => {dispatch(toggleMinimized({Text:text}))}}>
-                        <Minimize sx={{color:'white'}}/>
-                    </IconButton>
-                    <IconButton aria-label='close' onClick={handleCloseClick}>
-                        <Close sx={{color:'white'}}/>
-                    </IconButton>
-                </ButtonGroup>
+      <Card elevation={nameCard[text].zindex} sx={{ color: theme.palette.primary.light }}>
+        <div
+          position='relative'
+          className='pageBar'>
+          <div className='pageTitle'>
+            {text && React.cloneElement(APPS[text], { sx: { fontsize: 20 } })}
+            {text && text}
           </div>
-            {APPSCARD && (APPSCARD[text])}
-        </Card>
+          <ButtonGroup variant='text' aria-label="text button group" >
+            <IconButton aria-label='minimize' onClick={() => { dispatch(toggleMinimized({ Text: text })) }}>
+              <Minimize sx={{ color: 'white' }} />
+            </IconButton>
+            <IconButton aria-label='close' onClick={handleCloseClick}>
+              <Close sx={{ color: 'white' }} />
+            </IconButton>
+          </ButtonGroup>
+        </div>
+        {APPSCARD && (APPSCARD[text])}
+      </Card>
     </div>
   )
 }

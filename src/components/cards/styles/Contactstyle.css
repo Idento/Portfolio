@@ -1,4 +1,4 @@
-.containerContact{
+.containerContact {
     width: 500px;
     height: 100%;
     background: #222222;
@@ -9,7 +9,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    form{
+
+    form {
         width: 70%;
         background: #222222;
         display: flex;
@@ -17,6 +18,7 @@
         justify-content: center;
         align-items: center;
         margin: 5% 0%;
+
         h1 {
             margin: 2% 0%;
             color: white;
@@ -24,14 +26,14 @@
     }
 }
 
-.topForm{
+.topForm {
     background-color: #424242;
     width: 100%;
     padding: 1% 2%;
     border-radius: 10px 10px 0 0;
 }
 
-.social__container{
+.social__container {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -42,7 +44,8 @@
     border-radius: 30px;
     margin-bottom: 1%;
     gap: 10%;
-    a{
+
+    a {
         position: absolute;
         top: 0;
         left: 0;
@@ -52,7 +55,8 @@
         z-index: 1000;
     }
 }
-.iconContact{
+
+.iconContact {
     width: 30px;
     margin: auto;
 }

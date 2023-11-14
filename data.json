@@ -53,8 +53,10 @@
     ],
     "Presentation":{
         "Nom": "TSOURI Maxime",
+        "Photo":"src/assets/profilphoto.jpg",
         "Age" : 28,
-        "Courte presentation": "Animée par ma passion pour l'informatique depuis mon adolescence, je m'engage aujourd'hui dans une reconversion professionnelle vers le développement web, après un passage en tant que technicien informatique, j'ai réalisé que ma véritable passion réside dans le développement web. Cette expérience a été instructive, mais c'est maintenant dans le monde du code que je trouve ma véritable motivation et satisfaction professionnelle. Mon parcours reflète mon dévouement envers le monde de la technologie, et je suis enthousiaste à l'idée d'apporter ma passion et mes compétences au service de projets web innovants."
+        "Phrase": "Passionné par la création web, je m'efforce de concevoir des expériences en ligne captivantes et fonctionnelles, mettant l'accent sur l'impact positif pour les utilisateurs.",
+        "Courte_presentation": "Animée par ma passion pour l'informatique depuis mon adolescence, je m'engage aujourd'hui dans une reconversion professionnelle vers le développement web, après un passage en tant que technicien informatique, j'ai réalisé que ma véritable passion réside dans le développement web. Cette expérience a été instructive, mais c'est maintenant dans le monde du code que je trouve ma véritable motivation et satisfaction professionnelle. Mon parcours reflète mon dévouement envers le monde de la technologie, et je suis enthousiaste à l'idée d'apporter ma passion et mes compétences au service de projets web innovants."
     },
     "Parcours":{
         "Web": {
