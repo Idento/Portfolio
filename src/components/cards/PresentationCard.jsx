@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './styles/PresentationStyle.css'
 import { useSelector } from 'react-redux'
-import { Avatar, Button, Card, Divider } from '@mui/material'
+import { Button, Card } from '@mui/material'
 
 
 export default function PresentationCard() {
@@ -45,6 +45,7 @@ export default function PresentationCard() {
           left: 0,
           boxSizing: 'border-box',
           padding: '0% 5%',
+          transition: 'top 1s ease-out'
         }}
           className={`card ${show ? 'expanded' : ''}`}
         >

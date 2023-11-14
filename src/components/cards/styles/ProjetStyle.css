@@ -1,0 +1,23 @@
+.projectContainer {
+    width: 500px;
+    height: 700px;
+    background: #222222;
+    padding: 3% 0%;
+    box-sizing: border-box;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title__card {
+    margin: 1% 0;
+}
+
+.description__card {
+    letter-spacing: 0.1em;
+    font-size: 15px;
+    line-height: 22px;
+    text-indent: 10px;
+}

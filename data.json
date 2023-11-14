@@ -1,11 +1,14 @@
 {
-    "Projets":[
+    "Projets": [
         {
             "id": "1",
             "Titre": "Kasa",
             "description": "Mon premier projet développé avec ReactJS, repose sur l'utilisation de React Router Dom pour créer une application dédiée à une agence immobilière. L'objectif principal était de concevoir des composants réutilisables afin de minimiser la redondance du code et d'offrir une expérience de navigation fluide en dirigeant les utilisateurs vers les pages pertinentes.",
             "imageURL": "",
-            "tags": ["REACT", "SASS"],
+            "tags": [
+                "REACT",
+                "SASS"
+            ],
             "contexte": "Formation",
             "link": "",
             "date": "Juillet 2023"
@@ -15,7 +18,11 @@
             "Titre": "Sophie Bluel",
             "description": "Projet de développement d'une page web dynamique en utilisant JavaScript. L'objectif central était de réaliser des appels API permettant une connexion en tant qu'administrateur sur le site, avec la possibilité d'ajouter de nouveaux projets à la vitrine existante.",
             "imageURL": "",
-            "tags": ["HTML", "SASS", "JS"],
+            "tags": [
+                "HTML",
+                "SASS",
+                "JS"
+            ],
             "contexte": "Formation",
             "link": "",
             "date": "Juin 2023"
@@ -23,9 +30,13 @@
         {
             "id": "3",
             "Titre": "Site web personnel",
-            "description": "Projet de devellopement web creer en autodidacte, l'objectif etait de fournir des applications bureautique develloper en python en experimentant differente methode de rendu GUI",
-            "imageURL": "",
-            "tags": ["HTML", "CSS", "JS"],
+            "description": "Projet de developement web creer en autodidacte, l'objectif etait de fournir des applications bureautique develloper en python en experimentant differente methode de rendu GUI python",
+            "imageURL": "src/assets/Idento_siteweb.jpg",
+            "tags": [
+                "HTML",
+                "CSS",
+                "JS"
+            ],
             "contexte": "Personnel",
             "link": "",
             "date": "Janvier 2023"
@@ -35,7 +46,11 @@
             "Titre": "Mariage",
             "description": "Site web creer en autodidacte a l'occasion du mariage d'une amie.",
             "imageURL": "",
-            "tags": ["HTML", "CSS", "JS"],
+            "tags": [
+                "HTML",
+                "CSS",
+                "JS"
+            ],
             "contexte": "Personnel",
             "link": "",
             "date": "Janvier 2023"
@@ -43,51 +58,61 @@
         {
             "id": "5",
             "Titre": "Horizon",
-            "description": "Projet de site web dévellopé pendant la formation, l'objectif était de fournir un site contemplatif par son affichage pouvant être minimiser avec des outils utiles",
+            "description": "Projet de site web dévelopé pendant la formation entre deux projet de formation, l'objectif était de fournir un site contemplatif par son affichage pouvant être minimiser avec des outils utiles",
             "imageURL": "",
-            "tags": ["REACT", "SASS"],
+            "tags": [
+                "REACT",
+                "SASS"
+            ],
             "contexte": "Personnel",
             "link": "",
             "date": "Septembre 2023"
         }
     ],
-    "Presentation":{
+    "Presentation": {
         "Nom": "TSOURI Maxime",
-        "Photo":"src/assets/profilphoto.jpg",
-        "Age" : 28,
+        "Photo": "src/assets/profilphoto.jpg",
+        "Age": 28,
         "Phrase": "Passionné par la création web, je m'efforce de concevoir des expériences en ligne captivantes et fonctionnelles, mettant l'accent sur l'impact positif pour les utilisateurs.",
         "Courte_presentation": "Animée par ma passion pour l'informatique depuis mon adolescence, je m'engage aujourd'hui dans une reconversion professionnelle vers le développement web, après un passage en tant que technicien informatique, j'ai réalisé que ma véritable passion réside dans le développement web. Cette expérience a été instructive, mais c'est maintenant dans le monde du code que je trouve ma véritable motivation et satisfaction professionnelle. Mon parcours reflète mon dévouement envers le monde de la technologie, et je suis enthousiaste à l'idée d'apporter ma passion et mes compétences au service de projets web innovants."
     },
-    "Parcours":{
+    "Parcours": {
         "Web": {
-            "Intitulé": "Formation OpenClassRoom 'Intégrateur Web'",
-            "Date" : "Avril 2023",
-            "type": "Formation professionnelle",
-            "statut":"En cours"
+            "Formation professionnelle": {
+                "Intitulé": "OpenClassRoom 'Intégrateur Web'",
+                "Date": "Avril 2023",
+                "Durée": "9 mois",
+                "Statut": "En cours"
+            },
+            "Auto-didacte": {
+                "Intitulé": "HTML, CSS, javascript",
+                "Date": "Janvier 2023",
+                "Durée": "4 mois"
+            }
         },
-        "Autre":[
-            {
-                "Intitulé": "Formation GMSI (Gestionnaire en Maintenance et Support Informatique",
+        "Autre": {
+            "Formation en alternance": {
+                "Intitulé": "Brevet de technicien supérieur GMSI (Gestionnaire en Maintenance et Support Informatique)",
                 "Date": "2019/2020",
-                "Type": "brevet de technicien supérieur (BTS) en alternance",
                 "Durée": "1 ans",
+                "statut": "Interrompu",
                 "Entreprise": "LFB Biomanufacturing"
             }
-        ]
+        }
     },
     "Competence": {
         "Language": {
             "HTML": {
                 "value": 85,
-                "icon":"src/assets/html5.svg"
+                "icon": "src/assets/html5.svg"
             },
             "CSS": {
-                "value":90, 
+                "value": 90,
                 "icon": "src/assets/css3.svg"
             },
-            "SASS":{
-                "value":60,
-                "icon":"src/assets/sass.svg"
+            "SASS": {
+                "value": 60,
+                "icon": "src/assets/sass.svg"
             },
             "JavaScript": {
                 "value": 60,
@@ -105,9 +130,9 @@
                 "value": 60,
                 "icon": "src/assets/redux-icon.svg"
             },
-            "SQLite":{
-                "value":70,
-                "icon":"src/assets/sqlite-icon.svg"
+            "SQLite": {
+                "value": 70,
+                "icon": "src/assets/sqlite-icon.svg"
             }
         },
         "Autres": {
@@ -119,20 +144,20 @@
                 "value": 30,
                 "icon": "src/assets/figma.svg"
             },
-            "Responsive":{
+            "Responsive": {
                 "value": 90,
-                "icon":"src/assets/tablet-screen-button-solid.svg"
+                "icon": "src/assets/tablet-screen-button-solid.svg"
             }
         }
     },
     "Passion": {
         "Technologie": "Fasciné par la technologie depuis l'adolescence, j'ai un profond intérêt pour l'actualité mettant en lumière les dernières innovations. J'expérimente régulièrement de nouvelles choses, telles que la mise en place de NAS à domicile, la domotique et l'automatisation par scripts.",
-        "Jeux video": "Principalement attiré par les jeux d'automatisation et les jeux en groupe, ma passion pour les jeux vidéo va au-delà de la simple évasion. Dans les jeux d'automatisation, la gestion de défis approche le domaine du codage, tandis que dans les jeux de groupe, je trouve l'opportunité de rencontrer des individus de divers milieux, favorisant ainsi l'apprentissage mutuel.",
+        "Jeux video": "Principalement attiré par les jeux d'automatisation et les jeux en groupe, ma passion pour les jeux vidéo va au-delà de la simple évasion. Dans les jeux d'automatisation, la gestion de défis approche le domaine du codage, tandis que dans les jeux de groupe, l'opportunité de rencontrer des individus de divers milieux, favorisant ainsi l'apprentissage mutuel est incroyable.",
         "Autre": "Je me consacre occasionnellement à la création 3D lorsque l'inspiration me vient"
     },
-    "Reseau":{
+    "Reseau": {
         "Linkedin": {
-            "url":"https://www.linkedin.com/in/maxime-t-abba4a188/",
+            "url": "https://www.linkedin.com/in/maxime-t-abba4a188/",
             "icon": "src/assets/linkedin.svg"
         },
         "Discord": {
@@ -140,5 +165,4 @@
             "icon": "src/assets/discord.svg"
         }
     }
-
 }

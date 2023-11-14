@@ -15,7 +15,6 @@ export default function PassionCard() {
           <p>{v[1]}</p>
         </Card>
       })}
-
     </div>
   )
 }

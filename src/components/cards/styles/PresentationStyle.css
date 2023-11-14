@@ -47,14 +47,14 @@
     text-indent: 10px;
 }
 
-.MuiPaper-root-MuiCard-root {
+.introduceContainer,
+.-MuiPaper-root-MuiCard-root {
     -webkit-transition: none;
     transition: none;
 }
 
 .card {
     top: 500px;
-    transition: top 2s ease;
 }
 
 .expanded {
