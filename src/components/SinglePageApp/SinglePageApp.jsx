@@ -35,7 +35,8 @@ const appBarProperties = {
     flexDirection: 'row',
     height: '7%',
     width: '100%',
-    position: 'fixed'
+    position: 'fixed',
+    zIndex: 10
   },
   other: {
     top: 'auto',
@@ -59,8 +60,8 @@ const buttonBarProperties = {
   mobile: {
     padding: '0',
     margin: '0',
-    minWidth: '50px',
-    maxWidth: '50px',
+    minWidth: '40px',
+    maxWidth: '40px',
     minHeight: '100%',
     display: 'flex',
     justifyContent: 'center',
@@ -162,14 +163,15 @@ export default function SinglePageApp() {
       })}
       {Object.entries(page).map((v, i) => {
         if (v[1].openedWindow) {
-          return <PortfolioCard text={v[0]} key={i + 10} onDragMouseAlign={handleMouseAlign} mobile={isMobile} />
+          return <PortfolioCard text={v[0]} key={i + 10} onDragMouseAlign={handleMouseAlign} mobile={isMobile} maxwidth={maxCoord.maxw} />
         }
       })}
 
       <BottomNavigation
         sx={isMobile ? appBarProperties.mobile : appBarProperties.other}
         onChange={handleChangeBottomNav}
-        showLabels={false}>
+        showLabels={false}
+        className="appbar">
 
         {isMobile ?
           <BottomNavigationAction

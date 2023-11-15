@@ -1,4 +1,4 @@
-body{
+body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -6,7 +6,7 @@ body{
     min-width: 100%;
 }
 
-#root{
+#root {
     font-family: 'Roboto';
     background-color: #FFFFFF;
     min-height: 100%;

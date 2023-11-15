@@ -1,3 +1,4 @@
+import './styles/CardStyle.css'
 import React, { useEffect, useRef, useState } from 'react'
 import CompetenceCard from './CompetenceCard'
 import ContactCard from './ContactCard'
@@ -10,12 +11,12 @@ import { APPS } from '../SinglePageApp/SinglePageApp'
 import { Close, Minimize } from '@mui/icons-material'
 import { useDispatch, useSelector } from 'react-redux'
 import { setOnTop, setToggleWindow, setZIndex, toggleMinimized, setCoordinatesPages } from "../../../redux";
-import './styles/CardStyle.css'
 import { useTheme } from '@emotion/react'
 
-export default function PortfolioCard({ text, onDragMouseAlign, mobile = false }) {
+export default function PortfolioCard({ text, onDragMouseAlign, mobile = false, maxwidth }) {
   const [isDragging, setIsDragging] = useState(false);
   const nameCard = useSelector((state) => state.card)
+  const [maxw, setMaxW] = useState({})
   const theme = useTheme()
   const dispatch = useDispatch()
   const dragRef = useRef(null)
@@ -32,6 +33,7 @@ export default function PortfolioCard({ text, onDragMouseAlign, mobile = false }
   useEffect(() => {
     if (mobile) {
       dispatch(setCoordinatesPages({ dragText: text, x: 0, y: 0 }))
+      setMaxW(maxwidth)
     }
     dispatch(setZIndex({ Text: text }))
   }, [])
@@ -72,7 +74,7 @@ export default function PortfolioCard({ text, onDragMouseAlign, mobile = false }
       ref={dragRef}
       style={{ top: nameCard[text].position.y, left: nameCard[text].position.x, zIndex: nameCard[text].zindex }}
     >
-      <Card elevation={nameCard[text].zindex} sx={{ color: theme.palette.primary.light }}>
+      <Card elevation={mobile ? 0 : nameCard[text].zindex} sx={{ color: theme.palette.primary.light, minWidth: "100%", minHeight: '100%', borderRadius: mobile ? 0 : 4 }}>
         <div
           position='relative'
           className='pageBar'
