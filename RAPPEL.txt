@@ -9,7 +9,7 @@ export const APPS = {
 
 dragitem.js => modification des import setcoordinates et setcoordinatesPages par des argument dans la fonction.
 
-A FAIRE: - Toutes les pages
-         - Version Mobile (fonctionnaliter fait, manque css a la fin)
+A FAIRE: - Version Mobile (fonctionnaliter fait, manque css a la fin)
+         - Version PC resize des fenetres
          - Animation
          - CSS

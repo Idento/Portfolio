@@ -45,6 +45,7 @@ export default function CompetenceCard() {
           <Card variant='outlined' sx={cardStyle}>
             <h3>Language / Framework / Base de donnée</h3>
             <Divider sx={dividerStyle} />
+            {console.log(data)}
             {data && Object.entries(data.Language).map((v, i) => {
               return <LinearProgresswLabel text={v[0].toString()} maxProgress={v[1].value} key={`L${i}`} image={v[1].icon} />
             })}

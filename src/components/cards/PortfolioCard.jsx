@@ -71,15 +71,15 @@ export default function PortfolioCard({ text, onDragMouseAlign, mobile = false }
     <div className={`portfolioCard ${nameCard[text].minimize ? 'minimize' : 'up'}`}
       ref={dragRef}
       style={{ top: nameCard[text].position.y, left: nameCard[text].position.x, zIndex: nameCard[text].zindex }}
-      draggable='true'
-      onDragStart={handleDragStart}
-      onDragEnd={handleDragEnd}
-      onClick={handleClick}
     >
       <Card elevation={nameCard[text].zindex} sx={{ color: theme.palette.primary.light }}>
         <div
           position='relative'
-          className='pageBar'>
+          className='pageBar'
+          draggable='true'
+          onDragStart={handleDragStart}
+          onDragEnd={handleDragEnd}
+          onClick={handleClick}>
           <div className='pageTitle'>
             {text && React.cloneElement(APPS[text], { sx: { fontsize: 20 } })}
             {text && text}

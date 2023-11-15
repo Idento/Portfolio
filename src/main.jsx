@@ -34,9 +34,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Provider store={store}>
         <ThemeProvider theme={theme}>
           <Routes>
-          <Route path="/" element={<App />} />
-          <Route path="/main" element={<SinglePageApp />} />
-        </Routes>
+            <Route path="/" element={<App />} />
+            <Route path="/main" element={<SinglePageApp />} />
+          </Routes>
         </ThemeProvider>
       </Provider>
     </BrowserRouter>

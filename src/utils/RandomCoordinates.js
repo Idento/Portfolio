@@ -1,7 +1,7 @@
 
-export function setCoord(maxw, maxh){
+export function setCoord(maxw, maxh) {
     const settingcoord = [];
-    const gridSize = 60; // Taille de la grille
+    const gridSize = 70; // Taille de la grille
 
     // Imaginons que ces constantes représentent la taille maximale de l'espace
     let maxwidth = maxw;
@@ -26,8 +26,8 @@ function generateNonOverlappingCoordinates(existingCoords, gridSize, maxwidth, m
     // Génère de nouvelles coordonnées jusqu'à ce qu'elles ne se chevauchent pas
     do {
         // Calcule de nouvelles coordonnées basées sur une grille
-        newX = Math.floor(Math.random() * maxX / gridSize) * gridSize;
-        newY = Math.floor(Math.random() * maxY / gridSize) * gridSize;
+        newX = Math.floor(Math.random() * maxX)
+        newY = Math.floor(Math.random() * maxY)
         console.log(newX, newY);
     } while (existingCoords.some(coord => isTooClose(coord, { x: newX, y: newY }, gridSize)));
 
@@ -42,3 +42,5 @@ function isTooClose(coordA, coordB, minDistance) {
     // Vérifie si les coordonnées sont trop proches sur les axes X ou Y
     return distanceX < minDistance || distanceY < minDistance;
 }
+// / gridSize
+// * gridSize;

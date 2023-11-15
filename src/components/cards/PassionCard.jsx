@@ -8,7 +8,6 @@ export default function PassionCard() {
   return (
     <div className='hobbyContainer'>
       {hobby && Object.entries(hobby).map((v, i) => {
-        console.log(v);
         return <Card sx={{ marginBottom: '2%' }}>
           <h3>{v[0]}</h3>
           <Divider />
@@ -18,3 +17,5 @@ export default function PassionCard() {
     </div>
   )
 }
+
+React.memo(PassionCard)
