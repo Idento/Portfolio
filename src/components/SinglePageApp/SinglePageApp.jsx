@@ -15,6 +15,7 @@ import PortfolioCard from "../cards/PortfolioCard";
 import { BottomNavigation, BottomNavigationAction } from "@mui/material";
 import DragItem from "../../utils/dragitems";
 import { useTheme } from "@mui/material/styles";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -75,6 +76,7 @@ export default function SinglePageApp() {
   const [maxCoord, setMaxCoord] = useState()
   const [isMobile, setIsMobile] = useState(false)
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   const theme = useTheme()
 
   const myref = useRef()
@@ -87,9 +89,8 @@ export default function SinglePageApp() {
 
 
 
+
   function handleChangeBottomNav(event, newValue) {
-    console.log(newValue);
-    console.log(isMobile);
     if (newValue === 'home') {
       for (const [key, value] of Object.entries(page)) {
         if (value.openedWindow && !value.minimize) {
@@ -117,36 +118,45 @@ export default function SinglePageApp() {
   const handleDrop = (event) => {
     event.preventDefault();
     DragItem(event, maxCoord.maxh, maxCoord.maxw, dispatch, alignX, alignY, setCoordinates, setCoordinatesPages)
-    const severalOpenedWindowTest = Object.entries(page).filter((e) => e[1].openedWindow).length
-    if (severalOpenedWindowTest > 1) {
-      dispatch(setOnTop({ Text: event.dataTransfer.getData('text') }))
+    if (event.dataTransfer.getData('page')) {
+      const severalOpenedWindowTest = Object.entries(page).filter((e) => e[1].openedWindow).length
+      if (severalOpenedWindowTest > 1) {
+        dispatch(setOnTop({ Text: event.dataTransfer.getData('text') }))
+      }
     }
   };
 
 
+  function handleResize() {
+    console.log('resize');
+    setMaxCoord({
+      maxh: window.innerHeight,
+      maxw: window.innerWidth
+    })
+  }
+
 
   useEffect(() => {
-    const [maxwidth, maxheight] = [myref.current.clientWidth, myref.current.clientHeight - 100]
+    const [maxwidth, maxheight] = [window.innerWidth, window.innerHeight - 100]
     if (!maxCoord || maxCoord.maxh !== maxheight || maxCoord.maxw !== maxwidth) {
       setMaxCoord({ maxw: maxwidth, maxh: maxheight })
     }
     if (maxwidth <= 1280) {
       setIsMobile(true)
       Object.entries(page).map((v, i) => {
-        if (v[1].openedWindow) {
+        if (v[1].openedWindow && !(v[1].position.x === 0 || v[1].position.y === 0)) {
           dispatch(setCoordinatesPages({ dragText: v[0], x: 0, y: 0 }))
         }
       })
     } else {
       setIsMobile(false)
-      dispatch(setRandomCoordinates({ coordinates: setCoord(maxwidth, maxheight) }))
+      if (!maxCoord || maxCoord.maxw >= maxwidth - 100 || maxCoord.maxw <= maxwidth + 100) {
+        console.log("test");
+        dispatch(setRandomCoordinates({ coordinates: setCoord(maxwidth, maxheight) }))
+      }
     }
-    function handleResize() {
-      setMaxCoord({
-        maxh: window.innerHeight,
-        maxw: window.innerWidth
-      })
-    }
+
+
     window.addEventListener('resize', handleResize)
 
     return _ => {

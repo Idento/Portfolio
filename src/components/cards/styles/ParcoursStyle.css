@@ -27,8 +27,6 @@
     font-size: 15px;
     line-height: 24px;
     text-indent: 10px;
-    margin-left: 5%;
-    overflow-y: auto;
 }
 
 .parcoursCategorie {
@@ -77,12 +75,4 @@
         left: -10px;
     }
 
-}
-
-
-@media (min-width:701) and (max-width: 1280px) {
-    .courseContainer {
-        width: 100%;
-        height: 93%;
-    }
 }

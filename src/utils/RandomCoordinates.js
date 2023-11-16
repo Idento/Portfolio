@@ -21,6 +21,7 @@ function generateNonOverlappingCoordinates(existingCoords, gridSize, maxwidth, m
     const maxX = maxwidth - gridSize;
     const maxY = maxheight - gridSize;
 
+    let maxAttempts = 10;
     let newX, newY;
 
     // Génère de nouvelles coordonnées jusqu'à ce qu'elles ne se chevauchent pas
@@ -29,7 +30,8 @@ function generateNonOverlappingCoordinates(existingCoords, gridSize, maxwidth, m
         newX = Math.floor(Math.random() * maxX)
         newY = Math.floor(Math.random() * maxY)
         console.log(newX, newY);
-    } while (existingCoords.some(coord => isTooClose(coord, { x: newX, y: newY }, gridSize)));
+        maxAttempts--;
+    } while (maxAttempts > 0 && existingCoords.some(coord => isTooClose(coord, { x: newX, y: newY }, gridSize)));
 
     return { x: newX, y: newY };
 }

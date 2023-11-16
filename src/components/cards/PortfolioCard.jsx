@@ -1,5 +1,5 @@
 import './styles/CardStyle.css'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { MemoizedCompetenceCard } from './CompetenceCard'
 import { MemoizedContactCard } from './ContactCard'
 import { MemoizedParcoursCard } from './ParcoursCard'
@@ -52,6 +52,10 @@ export default function PortfolioCard({ text, onDragMouseAlign, mobile = false, 
     }
   };
 
+  const Minimized = useCallback(() => {
+    dispatch(toggleMinimized({ Text: text }))
+  })
+
   const handleDragEnd = () => {
     setIsDragging(false);
   };
@@ -87,7 +91,7 @@ export default function PortfolioCard({ text, onDragMouseAlign, mobile = false, 
             {text && text}
           </div>
           <ButtonGroup variant='text' aria-label="text button group" >
-            <IconButton aria-label='minimize' onClick={() => { dispatch(toggleMinimized({ Text: text })) }}>
+            <IconButton aria-label='minimize' onClick={Minimized}>
               <Minimize sx={{ color: 'white' }} />
             </IconButton>
             <IconButton aria-label='close' onClick={handleCloseClick}>
