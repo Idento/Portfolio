@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import './styles/File.css'
 import { useDispatch, useSelector } from "react-redux";
-import { setToggleWindow } from "../../../redux";
+import { setToggleWindow, setTrue } from "../../../redux";
 
 export default function File({ children, text, x, y }) {
   const [isDragging, setIsDragging] = useState(false);
@@ -21,12 +21,14 @@ export default function File({ children, text, x, y }) {
   function handleDblClick(e) {
     if (!page[text].openedWindow) {
       dispatch(setToggleWindow({ Text: text }))
+      dispatch(setTrue({ trueText: text }))
     }
   }
 
   function handleTouch() {
     if (!page[text].openedWindow) {
       dispatch(setToggleWindow({ Text: text }))
+      dispatch(setTrue({ trueText: text }))
     }
   }
 

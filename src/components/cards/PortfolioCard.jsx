@@ -7,7 +7,7 @@ import { MemoizedPassionCard } from './PassionCard'
 import { MemoizedPresentationCard } from './PresentationCard'
 import { MemoizedProjectCard } from './ProjetsCard'
 import { ButtonGroup, Card, IconButton } from '@mui/material'
-import { APPS } from '../SinglePageApp/SinglePageApp'
+import { APPSICON } from '../SinglePageApp/SinglePageApp'
 import { Close, Minimize } from '@mui/icons-material'
 import { useDispatch, useSelector } from 'react-redux'
 import { setOnTop, setToggleWindow, setZIndex, toggleMinimized, setCoordinatesPages } from "../../../redux";
@@ -87,7 +87,7 @@ export default function PortfolioCard({ text, onDragMouseAlign, mobile = false, 
           onDragEnd={handleDragEnd}
           onClick={handleClick}>
           <div className='pageTitle'>
-            {text && React.cloneElement(APPS[text], { sx: { fontsize: 20 } })}
+            {text && React.cloneElement(APPSICON[text], { sx: { fontsize: 20 } })}
             {text && text}
           </div>
           <ButtonGroup variant='text' aria-label="text button group" >

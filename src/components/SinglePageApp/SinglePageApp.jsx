@@ -12,14 +12,14 @@ import './styles/SinglePageApp.css'
 import { setCoordinatesPages, setCoordinates, setOnTop, setRandomCoordinates, toggleMinimized } from "../../../redux";
 import { setCoord } from "../../utils/RandomCoordinates";
 import PortfolioCard from "../cards/PortfolioCard";
-import { BottomNavigation, BottomNavigationAction } from "@mui/material";
+import { BottomNavigation, BottomNavigationAction, Snackbar } from "@mui/material";
 import DragItem from "../../utils/dragitems";
 import { useTheme } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
 
 
 
-export const APPS = {
+export const APPSICON = {
   'Compétence': <QueryStats sx={{ fontSize: 40 }} />,
   'Contact': <ContactPage sx={{ fontSize: 40 }} />,
   'Parcours': <School sx={{ fontSize: 40 }} />,
@@ -28,51 +28,11 @@ export const APPS = {
   'Projets': <ViewKanban sx={{ fontSize: 40 }} />
 }
 
-const appBarProperties = {
-  mobile: {
-    top: 'auto',
-    bottom: 0,
-    display: 'flex',
-    flexDirection: 'row',
-    height: '7%',
-    width: '100%',
-    position: 'fixed',
-    zIndex: 10
-  },
-  other: {
-    top: 'auto',
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
-    gap: '2%',
-    bottom: 0,
-    height: 50,
-    width: 1000,
-    left: 0,
-    right: 0,
-    margin: 'auto',
-    borderTopLeftRadius: 2,
-    borderTopRightRadius: 2,
-    bckgroundColor: '#424242',
-    position: 'fixed'
-  }
-}
-const buttonBarProperties = {
-  mobile: {
-    padding: '0',
-    margin: '0',
-    minWidth: '40px',
-    maxWidth: '40px',
-    minHeight: '100%',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
-}
 
 export default function SinglePageApp() {
   const page = useSelector((state) => state.card)
   const coord = useSelector((state) => state.icon)
+  const openedPage = useSelector((state) => state.allpage)
   const [maxCoord, setMaxCoord] = useState()
   const [isMobile, setIsMobile] = useState(false)
   const dispatch = useDispatch()
@@ -86,8 +46,6 @@ export default function SinglePageApp() {
   const handleMouseAlign = (x, y) => {
     [alignX, alignY] = [x, y]
   }
-
-
 
 
   function handleChangeBottomNav(event, newValue) {
@@ -137,6 +95,7 @@ export default function SinglePageApp() {
 
 
   useEffect(() => {
+    console.log("test");
     const [maxwidth, maxheight] = [window.innerWidth, window.innerHeight - 100]
     if (!maxCoord || maxCoord.maxh !== maxheight || maxCoord.maxw !== maxwidth) {
       setMaxCoord({ maxw: maxwidth, maxh: maxheight })
@@ -151,7 +110,6 @@ export default function SinglePageApp() {
     } else {
       setIsMobile(false)
       if (!maxCoord || maxCoord.maxw >= maxwidth - 100 || maxCoord.maxw <= maxwidth + 100) {
-        console.log("test");
         dispatch(setRandomCoordinates({ coordinates: setCoord(maxwidth, maxheight) }))
       }
     }
@@ -167,19 +125,19 @@ export default function SinglePageApp() {
 
   return (
     <div className="maindiv" ref={myref} onDragOver={handleDragOver} onDrop={handleDrop}>
-      {Object.entries(APPS).map((v, i) => {
+      {Object.entries(APPSICON).map((v, i) => {
         return <File text={v[0]} key={i} x={!isMobile ? coord[v[0]].x : 'auto'} y={!isMobile ? coord[v[0]].y : 'auto'} >
           {v[1]}
         </File>
       })}
       {Object.entries(page).map((v, i) => {
         if (v[1].openedWindow) {
-          return <PortfolioCard text={v[0]} key={i + 10} onDragMouseAlign={handleMouseAlign} mobile={isMobile} maxwidth={maxCoord.maxw} />
+          return <PortfolioCard text={v[0]} key={i + 10} onDragMouseAlign={handleMouseAlign} mobile={isMobile} maxwidth={maxCoord && maxCoord.maxw} />
         }
       })}
 
       <BottomNavigation
-        sx={isMobile ? appBarProperties.mobile : appBarProperties.other}
+        sx={{ backgroundColor: theme.palette.primary.main }}
         onChange={handleChangeBottomNav}
         showLabels={false}
         className="appbar">
@@ -188,21 +146,24 @@ export default function SinglePageApp() {
           <BottomNavigationAction
             showLabel={false}
             value={'home'}
-            icon={<Home sx={{ fontSize: 40 }} />}
+            icon={<Home sx={{ fontSize: 40, color: 'white' }} />}
             sx={{ padding: 0, margin: 0, minHeight: '100%', minWidth: '50px', maxWidth: '50px' }} />
           : null}
         {page && Object.entries(page).map((v, i) => {
           if (v[1].openedWindow) {
-            const Icon = APPS[v[0]]
+            const Icon = APPSICON[v[0]]
             return <BottomNavigationAction
+              className="navButton"
               showLabel={false}
               key={i}
               value={v[0]}
-              icon={Icon}
-              disableRipple
-              sx={isMobile ? buttonBarProperties.mobile : {}} />
+              icon={React.cloneElement(Icon, { sx: { color: 'white', fontSize: 40 } })}
+              disableRipple />
           }
         })}
       </BottomNavigation>
+      {Object.values(openedPage).filter(value => value === true).length === 6 ?
+        <Snackbar open autoHideDuration={3000} message="Merci d'avoir parcouru mon portfolio jusqu'au bout !" />
+        : null}
     </div>)
 }
