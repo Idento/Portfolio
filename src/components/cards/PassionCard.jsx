@@ -9,10 +9,10 @@ function PassionCard() {
   return (
     <div className='hobbyContainer'>
       {hobby && Object.entries(hobby).map((v, i) => {
-        return <Card sx={{ marginBottom: '2%' }}>
-          <h3>{v[0]}</h3>
+        return <Card sx={{ marginBottom: '2%', paddingBottom: '10px' }}>
+          <h3 className='hobbyTitle'>{v[0]}</h3>
           <Divider />
-          <p>{v[1]}</p>
+          <p className='hobbyPara'>{v[1]}</p>
         </Card>
       })}
     </div>

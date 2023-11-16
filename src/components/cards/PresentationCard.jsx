@@ -8,6 +8,7 @@ function PresentationCard() {
   const introduceData = useSelector((state) => state.data['Presentation'])
   const [show, setShow] = useState(false)
   console.log('test presentation');
+
   function handleShowMore(e) {
     setShow(true)
   }
@@ -18,39 +19,32 @@ function PresentationCard() {
 
   return (
     <div className='introduceContainer'>
-      <Card sx={{ padding: '0 2%', width: "70%", overflow: 'hidden', height: '424px', position: 'relative' }}>
+      <Card className='introduceCard'>
         <div className='info'>
-          <img alt={`${introduceData.Nom}`} src={`${introduceData.Photo}`} />
-          <h3>{`${introduceData.Nom}`}</h3>
+          <img alt={`${introduceData.Nom}`} src={`${introduceData.Photo}`} className='introduceImg' />
+          <h3 id='introduceName'>{`${introduceData.Nom}`}</h3>
           <p>{`${introduceData.Age} ans`}</p>
         </div>
-        <q>{`${introduceData.Phrase}`}</q>
+        <q className='quoteIntroduce'>{`${introduceData.Phrase}`}</q>
         <Button variant='outlined' sx={{
           padding: '2px 20px 0 20px',
           borderRadius: '5px 5px 0 0',
           borderBottom: '1px solid transparent',
           ":hover":
             { borderBottom: '1px solid transparent' }
-        }} onClick={handleShowMore}>
+        }}
+          onClick={handleShowMore}
+          onTouchStart={handleShowMore}
+        >
           Plus d'information
         </Button>
 
 
-        <Card sx={{
-          width: '100%',
-          height: '100%',
-          zIndex: 10,
-          margin: 0,
-          position: 'absolute',
-          left: 0,
-          boxSizing: 'border-box',
-          padding: '0% 5%',
-          transition: 'top 1s ease-out'
-        }}
-          className={`card ${show ? 'expanded' : ''}`}
+        <Card className={`card ${show ? 'expanded' : ''}`}
+          sx={{ overflow: 'auto', transition: 'top 1s ease-out' }}
         >
 
-          <div className="extra-content">
+          <div className="extra_content">
             <Button variant='outlined'
               sx={{
                 padding: '2px 20px 0 20px',
@@ -60,6 +54,7 @@ function PresentationCard() {
                   { borderTop: '1px solid transparent' }
               }}
               onClick={handleShowLess}
+              onTouchStart={handleShowLess}
             >
               Retour
             </Button>

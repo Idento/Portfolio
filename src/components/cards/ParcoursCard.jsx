@@ -12,18 +12,18 @@ function ParcoursCard() {
 
       <div className="timeline">
         {data && Object.entries(data).map((v, i) => {
-          return <Accordion key={i} sx={{ width: '100%' }} defaultExpanded>
+          return <Accordion key={i} sx={{ width: '100%' }} >
             <AccordionSummary expandIcon={<ExpandMoreOutlined />}>
               {v[0]}
             </AccordionSummary>
-            <AccordionDetails>
+            <AccordionDetails className='underAccordion'>
               {console.log(v)}
               {Object.entries(v[1]).map((va, id) => {
                 return <div className={`headContentCell`} key={id}>
                   <Divider>
-                    <h3>{va[0]}</h3>
+                    <h3 className='parcoursCategorie'>{va[0]}</h3>
                   </Divider>
-                  <h4>{va[1].Intitulé}</h4>
+                  <h4 className='intitulerTitle'>{va[1].Intitulé}</h4>
                   <TableContainer component={Paper}>
                     <Table>
                       <TableHead>

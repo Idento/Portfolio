@@ -18,8 +18,7 @@ function ProjetsCard() {
   const data = useSelector((state) => state.data['Projets'])
   const [projects, setProjects] = useState()
   const [value, setValue] = useState(0);
-  // const [allfilter, setAllFilter] = useState()
-  // const [filter, setFilter] = useState([])
+
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -36,20 +35,6 @@ function ProjetsCard() {
       getProjects[v[1].contexte] = getProjects[v[1].contexte] || []
       getProjects[v[1].contexte].push(v[1])
     })
-    //   if (!getfilter[v[1].contexte]) {
-    //     getfilter[v[1].contexte] = [...v[1].tags]
-    //   } else {
-    //     v[1].tags.map((t, i) => {
-    //       if (!getfilter[v[1].contexte].includes(t)) {
-    //         getfilter[v[1].contexte].push(t)
-    //       }
-    //     })
-    //   }
-    // })
-    // getfilter['Tous'] = MergeTwoArrayWithoutDuplicates(getfilter['Formation'], getfilter['Personnel'])
-    // console.log(getfilter);
-    // console.log(getProjects);
-    // setAllFilter(getfilter)
     setProjects(getProjects)
   }, [])
 
@@ -57,8 +42,8 @@ function ProjetsCard() {
     <div className='projectContainer'>
       <Card sx={{ width: '100%', height: '100%' }}>
         <Tabs value={value} onChange={handleChange} centered sx={{ borderBottom: '1px solid grey' }}>
-          {projects && Object.keys(projects).map((v) => {
-            return <Tab label={v.toString()} />
+          {projects && Object.keys(projects).map((v, i) => {
+            return <Tab label={v.toString()} key={`tab ${i}`} />
           })}
         </Tabs>
         <div className="projectTabsContainer">

@@ -18,7 +18,7 @@
     align-items: center;
     width: 100%;
     height: 100%;
-    padding: 0% 5%;
+    padding: 0% 0 0 5%;
     background-color: transparent;
     border-left: 2px solid white;
     text-align: center;
@@ -28,38 +28,61 @@
     line-height: 24px;
     text-indent: 10px;
     margin-left: 5%;
+    overflow-y: auto;
+}
 
-    @media (min-width:701) and (max-width: 1280px) {
-        width: 100%;
-        height: 93%;
-    }
+.parcoursCategorie {
+    margin: 2% 0 0% 0;
+    position: relative;
+}
 
-    @media (min-width:320px) and (max-height: 700px) {
-        width: 100%;
-        min-height: 93%;
-    }
+.intitulerTitle {
+    margin: 1%;
+}
 
-    h3 {
-        margin: 2% 0 0% 0;
-        position: relative;
-    }
-
-    h4 {
-        margin: 1%;
-    }
-
-    h4::after {
-        content: '';
-        position: absolute;
-        background-color: white;
-        width: 7px;
-        height: 7px;
-        border-radius: 50%;
-        border: 2px solid #424242;
-        left: -11px;
-    }
+.intitulerTitle::after {
+    content: '';
+    position: absolute;
+    background-color: white;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    border: 2px solid #424242;
+    left: -11px;
 }
 
 .headContentCell {
-    margin-top: 20px;
+    margin-top: 10px;
+}
+
+@media (min-width:320px) and (max-width: 700px) {
+    .courseContainer {
+        width: 100%;
+        min-height: 93%;
+        padding: 1% 2% 1% 2%;
+    }
+
+    .underAccordion {
+        margin: 0;
+        padding: 0;
+    }
+
+    .timeline {
+        margin-left: 1%;
+        overflow: unset;
+        line-height: 22px;
+    }
+
+    .intitulerTitle::after {
+        left: -10px;
+    }
+
+}
+
+
+@media (min-width:701) and (max-width: 1280px) {
+    .courseContainer {
+        width: 100%;
+        height: 93%;
+    }
 }

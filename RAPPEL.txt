@@ -13,3 +13,22 @@ A FAIRE: - Version Mobile (fonctionnaliter fait, manque css a la fin)
          - Version PC resize des fenetres
          - Animation
          - CSS
+
+
+ // const [allfilter, setAllFilter] = useState()
+// const [filter, setFilter] = useState([])
+(filter logic)
+   //   if (!getfilter[v[1].contexte]) {
+    //     getfilter[v[1].contexte] = [...v[1].tags]
+    //   } else {
+    //     v[1].tags.map((t, i) => {
+    //       if (!getfilter[v[1].contexte].includes(t)) {
+    //         getfilter[v[1].contexte].push(t)
+    //       }
+    //     })
+    //   }
+    // })
+    // getfilter['Tous'] = MergeTwoArrayWithoutDuplicates(getfilter['Formation'], getfilter['Personnel'])
+    // console.log(getfilter);
+    // console.log(getProjects);
+    // setAllFilter(getfilter)
