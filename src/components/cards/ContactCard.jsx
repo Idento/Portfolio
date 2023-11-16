@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 import { Send } from '@mui/icons-material'
 
 
-export default function ContactCard() {
+function ContactCard() {
   const data = useSelector((state) => state.data['Reseau'])
   const theme = useTheme()
   const boxstyle = {
@@ -23,31 +23,31 @@ export default function ContactCard() {
     width: '100%',
     alignSelf: 'flex-start',
     backgroundColor: 'white',
-    position: 'relative',
     margin: '3% 0% 0 0',
     boxSizing: 'border-box',
     borderRadius: '3px',
   }
+  console.log('testcontact');
   return (
     <div className='containerContact'>
 
-      <form >
-        <span className='topForm'><h1>Formulaire de contact</h1></span>
-        <Box sx={boxstyle}>
+      <form className='formContact' >
+        <div className='topForm'><h1>Formulaire de contact</h1></div>
+        <Box component={'div'} sx={boxstyle}>
           <TextField label='Nom Complet' required sx={textFieldStyle} />
           <TextField label='Adresse mail' required type='email' sx={textFieldStyle} />
           <TextField label='Objet' required sx={textFieldStyle} />
           <TextField label='Message' required multiline rows={5} sx={textFieldStyle} />
-          <Button variant="contained" endIcon={<Send />} sx={{ position: 'absolute', bottom: '-25px', width: '80%' }}>
+          <Button className='buttonFormContact' variant="contained" endIcon={<Send />}>
             Send
           </Button>
         </Box>
       </form>
-      <Divider variant='middle' sx={{
+      <Divider className='formContactDivider' variant='middle' sx={{
         color: 'white',
         width: '100%',
-        margin: '5% 0% 3% 0',
-        height: '10%',
+        margin: '3% 0% 3% 0',
+        height: '20px',
         "&::before, &::after": {
           borderColor: "white"
         }
@@ -65,3 +65,5 @@ export default function ContactCard() {
     </div>
   )
 }
+
+export const MemoizedContactCard = React.memo(ContactCard)

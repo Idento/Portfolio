@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import LinearProgresswLabel from './Linearcomponent/LinearProgresswLabel';
 
 
-export default function CompetenceCard() {
+function CompetenceCard() {
   const [loadingText, setLoadingText] = useState('');
   const [textGenerated, setTextGenerated] = useState(false);
   const data = useSelector((state) => state.data['Competence'])
@@ -17,6 +17,7 @@ export default function CompetenceCard() {
   }
 
   useEffect(() => {
+    console.log('test Competence');
     const updateText = () => {
       setLoadingText(textContent.slice(0, currentIndex));
       currentIndex++;
@@ -62,4 +63,4 @@ export default function CompetenceCard() {
     </div>
   )
 }
-React.memo(CompetenceCard)
+export const MemoizedCompetenceCard = React.memo(CompetenceCard)

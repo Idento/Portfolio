@@ -4,14 +4,15 @@ import './styles/ParcoursStyle.css'
 import React from 'react'
 import { useSelector } from 'react-redux'
 
-export default function ParcoursCard() {
+function ParcoursCard() {
   const data = useSelector((state) => state.data['Parcours'])
+  console.log('test parcours');
   return (
     <div className='courseContainer'>
 
       <div className="timeline">
         {data && Object.entries(data).map((v, i) => {
-          return <Accordion key={i} sx={{ width: '100%' }}>
+          return <Accordion key={i} sx={{ width: '100%' }} defaultExpanded>
             <AccordionSummary expandIcon={<ExpandMoreOutlined />}>
               {v[0]}
             </AccordionSummary>
@@ -37,13 +38,15 @@ export default function ParcoursCard() {
                         </TableRow>
                       </TableHead>
                       <TableBody>
-                        {Object.entries(va[1]).map((valu, inde) => {
-                          if (valu[1] !== va[1].Intitulé) {
-                            return <TableCell key={inde} sx={{ padding: "2% 10px" }}>
-                              {valu[1]}
-                            </TableCell>
-                          }
-                        })}
+                        <TableRow>
+                          {Object.entries(va[1]).map((valu, inde) => {
+                            if (valu[1] !== va[1].Intitulé) {
+                              return <TableCell key={inde} sx={{ padding: "2% 10px" }}>
+                                {valu[1]}
+                              </TableCell>
+                            }
+                          })}
+                        </TableRow>
                       </TableBody>
                     </Table>
                   </TableContainer>
@@ -57,3 +60,5 @@ export default function ParcoursCard() {
     </div>
   )
 }
+
+export const MemoizedParcoursCard = React.memo(ParcoursCard)

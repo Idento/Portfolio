@@ -1,11 +1,11 @@
 import './styles/CardStyle.css'
 import React, { useEffect, useRef, useState } from 'react'
-import CompetenceCard from './CompetenceCard'
-import ContactCard from './ContactCard'
-import ParcoursCard from './ParcoursCard'
-import PassionCard from './PassionCard'
-import PresentationCard from './PresentationCard'
-import ProjetsCard from './ProjetsCard'
+import { MemoizedCompetenceCard } from './CompetenceCard'
+import { MemoizedContactCard } from './ContactCard'
+import { MemoizedParcoursCard } from './ParcoursCard'
+import { MemoizedPassionCard } from './PassionCard'
+import { MemoizedPresentationCard } from './PresentationCard'
+import { MemoizedProjectCard } from './ProjetsCard'
 import { ButtonGroup, Card, IconButton } from '@mui/material'
 import { APPS } from '../SinglePageApp/SinglePageApp'
 import { Close, Minimize } from '@mui/icons-material'
@@ -22,12 +22,12 @@ export default function PortfolioCard({ text, onDragMouseAlign, mobile = false, 
   const dragRef = useRef(null)
 
   const APPSCARD = {
-    'Compétence': <CompetenceCard />,
-    'Contact': <ContactCard />,
-    'Parcours': <ParcoursCard />,
-    "Centre d'intérêt": <PassionCard />,
-    'Présentation': <PresentationCard />,
-    'Projets': <ProjetsCard />
+    'Compétence': <MemoizedCompetenceCard />,
+    'Contact': <MemoizedContactCard />,
+    'Parcours': <MemoizedParcoursCard />,
+    "Centre d'intérêt": <MemoizedPassionCard />,
+    'Présentation': <MemoizedPresentationCard />,
+    'Projets': <MemoizedProjectCard />
   }
 
   useEffect(() => {

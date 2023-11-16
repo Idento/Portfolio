@@ -3,8 +3,9 @@ import './styles/PassionStyle.css'
 import React from 'react'
 import { useSelector } from 'react-redux'
 
-export default function PassionCard() {
+function PassionCard() {
   const hobby = useSelector((state) => state.data['Passion'])
+  console.log('tesssst passion');
   return (
     <div className='hobbyContainer'>
       {hobby && Object.entries(hobby).map((v, i) => {
@@ -18,4 +19,4 @@ export default function PassionCard() {
   )
 }
 
-React.memo(PassionCard)
+export const MemoizedPassionCard = React.memo(PassionCard)

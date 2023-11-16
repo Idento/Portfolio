@@ -12,7 +12,7 @@ import './styles/SinglePageApp.css'
 import { setCoordinatesPages, setCoordinates, setOnTop, setRandomCoordinates, toggleMinimized } from "../../../redux";
 import { setCoord } from "../../utils/RandomCoordinates";
 import PortfolioCard from "../cards/PortfolioCard";
-import { AppBar, BottomNavigation, BottomNavigationAction, Divider } from "@mui/material";
+import { BottomNavigation, BottomNavigationAction } from "@mui/material";
 import DragItem from "../../utils/dragitems";
 import { useTheme } from "@mui/material/styles";
 
@@ -86,6 +86,7 @@ export default function SinglePageApp() {
   }
 
 
+
   function handleChangeBottomNav(event, newValue) {
     console.log(newValue);
     console.log(isMobile);
@@ -109,16 +110,17 @@ export default function SinglePageApp() {
 
   const handleDragOver = (event) => {
     event.preventDefault();
-    const severalOpenedWindowTest = Object.entries(page).filter((e) => e[1].openedWindow).length
-    if (severalOpenedWindowTest > 1) {
-      dispatch(setOnTop({ Text: event.dataTransfer.getData('text') }))
-    }
-    // DragItem(event, maxh, maxw,dispatch)
+    event.stopPropagation()
+    // DragItem(event, maxh, maxw, dispatch)
   };
 
   const handleDrop = (event) => {
     event.preventDefault();
     DragItem(event, maxCoord.maxh, maxCoord.maxw, dispatch, alignX, alignY, setCoordinates, setCoordinatesPages)
+    const severalOpenedWindowTest = Object.entries(page).filter((e) => e[1].openedWindow).length
+    if (severalOpenedWindowTest > 1) {
+      dispatch(setOnTop({ Text: event.dataTransfer.getData('text') }))
+    }
   };
 
 
@@ -139,15 +141,14 @@ export default function SinglePageApp() {
       setIsMobile(false)
       dispatch(setRandomCoordinates({ coordinates: setCoord(maxwidth, maxheight) }))
     }
-    function handleResize(e) {
-      console.log(window.innerHeight, window.innerWidth);
+    function handleResize() {
       setMaxCoord({
         maxh: window.innerHeight,
         maxw: window.innerWidth
       })
     }
-    console.log(maxCoord);
     window.addEventListener('resize', handleResize)
+
     return _ => {
       window.removeEventListener('resize', handleResize)
     }
@@ -188,7 +189,8 @@ export default function SinglePageApp() {
               key={i}
               value={v[0]}
               icon={Icon}
-              sx={isMobile ? buttonBarProperties.mobile : ''} />
+              disableRipple
+              sx={isMobile ? buttonBarProperties.mobile : {}} />
           }
         })}
       </BottomNavigation>

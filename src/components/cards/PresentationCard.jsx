@@ -4,10 +4,10 @@ import { useSelector } from 'react-redux'
 import { Button, Card } from '@mui/material'
 
 
-export default function PresentationCard() {
+function PresentationCard() {
   const introduceData = useSelector((state) => state.data['Presentation'])
   const [show, setShow] = useState(false)
-
+  console.log('test presentation');
   function handleShowMore(e) {
     setShow(true)
   }
@@ -72,4 +72,6 @@ export default function PresentationCard() {
     </div>
   )
 }
+
+export const MemoizedPresentationCard = React.memo(PresentationCard)
 
