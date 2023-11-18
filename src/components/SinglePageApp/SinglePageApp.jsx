@@ -12,8 +12,7 @@ import './styles/SinglePageApp.css'
 import { setCoordinatesPages, setCoordinates, setOnTop, setRandomCoordinates, toggleMinimized } from "../../../redux";
 import { setCoord } from "../../utils/RandomCoordinates";
 import PortfolioCard from "../cards/PortfolioCard";
-import { BottomNavigation, BottomNavigationAction, IconButton, Snackbar } from "@mui/material";
-import DragItem from "../../utils/dragitems";
+import { Alert, BottomNavigation, BottomNavigationAction, IconButton, Snackbar } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
 import { useDrop } from "react-dnd";
@@ -54,8 +53,7 @@ export default function SinglePageApp() {
   }))
   const navigate = useNavigate()
   const theme = useTheme()
-
-  let opened = false
+  let delay = 0
 
 
   const actionSnackBar = (
@@ -63,10 +61,8 @@ export default function SinglePageApp() {
       <IconButton
         size="small"
         aria-label="close"
-        color="white"
         onClick={handleClose}
         onTouchStart={handleClose}>
-        <Close />
       </IconButton>
     </>
   )
@@ -141,10 +137,12 @@ export default function SinglePageApp() {
   return (
     <div className="maindiv" ref={drop}>
       {Object.entries(APPSICON).map((v, i) => {
-        return <File text={v[0]} key={i} x={!isMobile ? coord[v[0]].x : 'auto'} y={!isMobile ? coord[v[0]].y : 'auto'} >
+        delay += 500
+        return <File text={v[0]} key={i} x={!isMobile ? coord[v[0]].x : 'auto'} y={!isMobile ? coord[v[0]].y : 'auto'} animdelay={delay}>
           {v[1]}
         </File>
-      })}
+      })
+      }
       {Object.entries(page).map((v, i) => {
         if (v[1].openedWindow) {
           return <PortfolioCard text={v[0]} key={i + 10} mobile={isMobile} maxwidth={maxCoord && maxCoord.maxw} />
@@ -172,9 +170,9 @@ export default function SinglePageApp() {
               showLabel={false}
               key={i}
               value={v[0]}
-              icon={React.cloneElement(Icon, { sx: { color: 'white', fontSize: isMobile ? 40 : 30 } })}
+              icon={React.cloneElement(Icon, { sx: { color: 'white', fontSize: isMobile ? 30 : 40 } })}
               disableRipple
-              sx={{ minWidth: isMobile ? "35px" : '40px', maxWidth: isMobile ? "35px" : '40px' }} />
+              sx={{ minWidth: isMobile ? "35px" : '70px', maxWidth: isMobile ? "35px" : '70px' }} />
           }
         })}
       </BottomNavigation>
@@ -182,10 +180,13 @@ export default function SinglePageApp() {
       <Snackbar
         open={open}
         autoHideDuration={16000}
-        message="Merci d'avoir parcouru mon portfolio jusqu'au bout !"
         onClose={handleClose}
         action={actionSnackBar}
-      />
+      >
+        <Alert onClose={handleClose} severity="success">
+          "Merci d'avoir parcouru mon portfolio jusqu'au bout !"
+        </Alert>
+      </Snackbar>
 
     </div>)
 }

@@ -1,21 +1,29 @@
-import { Card, Tabs, Tab, CardMedia, CardContent, Checkbox, Stack, Chip } from '@mui/material'
+import { Card, Tabs, Tab, CardMedia, CardContent, Stack, Chip, CardActionArea } from '@mui/material'
 import TabPanel from './TabContentComponent/TabContentComponent'
 import './styles/ProjetStyle.css'
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
+import { MemoizedCarrousel } from './carrousel/carrousel'
 
 function ProjetsCard() {
   const data = useSelector((state) => state.data['Projets'])
   const [projects, setProjects] = useState()
   const [value, setValue] = useState(0);
+  const [openDialog, setOpenDialog] = useState(null)
 
+  function handleCardClick(va) {
+    setOpenDialog(va)
+  }
+
+  function handleCardCloseClick() {
+    setOpenDialog(null)
+  }
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
   useEffect(() => {
-    console.log('test projet');
     setProjects(data)
     const getfilter = {}
     const getProjects = {}
@@ -40,8 +48,10 @@ function ProjetsCard() {
           {projects && Object.entries(projects).map((v, i) => {
             return <TabPanel value={value} index={i} key={`Tab${i}`} >
               {v[1].map((va, id) => {
-                return <Card key={`card${id}`}>
-                  <CardMedia image={va.imageURL} component='img' />
+                return <Card key={`card${id}`} sx={{ position: 'relative' }}>
+                  <CardActionArea onClick={() => handleCardClick(va)}>
+                    <CardMedia image={va.imageURL} component='img' loading='lazy' />
+                  </CardActionArea>
                   <CardContent>
                     <h4 className='title__card'>{va.Titre}</h4>
                     <p className='description__card'>{va.description} <br /> {va.date}</p>
@@ -58,6 +68,7 @@ function ProjetsCard() {
         </div>
 
       </Card>
+      {openDialog && <MemoizedCarrousel data={openDialog} close={handleCardCloseClick} openDialog={true} />}
     </div>
   )
 }

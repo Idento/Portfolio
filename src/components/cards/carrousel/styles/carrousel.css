@@ -1,0 +1,70 @@
+.containerCarrousel {
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    position: relative;
+}
+
+.arrow {
+    position: absolute;
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.712);
+}
+
+.left {
+    left: 0;
+    right: 98%;
+    top: 50%;
+    bottom: auto;
+    border-radius: 0px 4px 4px 0px;
+}
+
+.right {
+    left: 98%;
+    right: 0;
+    top: 50%;
+    bottom: auto;
+    border-radius: 4px 0 0 4px;
+}
+
+.dotContainer {
+    position: absolute;
+    width: 12%;
+    left: 45%;
+    right: 45%;
+    border-radius: 10px;
+    bottom: 0px;
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.712);
+    flex-direction: row;
+    justify-content: center;
+    gap: 5%;
+    padding: 10px;
+}
+
+.imageCarrousel {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+}
+
+.actual {
+    -webkit-box-shadow: inset 0px 0px 0px 3px #424242;
+    box-shadow: inset 0px 0px 0px 3px #424242;
+}
+
+@media (min-width: 320px) and (max-width:700px) {
+    .left {
+        justify-content: center;
+        right: 95%;
+    }
+
+    .right {
+        justify-content: center;
+        left: 95%;
+    }
+
+    .dotContainer {
+        display: none;
+    }
+}

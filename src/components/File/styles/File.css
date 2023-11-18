@@ -1,4 +1,22 @@
+@keyframes getIn {
+    0% {
+        top: 500;
+        left: 500;
+        opacity: 0;
+    }
+
+    95% {
+        top: 500;
+        left: 500;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
 .file {
+    opacity: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -7,6 +25,8 @@
     position: absolute;
     width: 8%;
     height: 5%;
+    animation: getIn 500ms ease-out forwards;
+    transition: top 500ms ease-out, left 500ms ease-out;
 }
 
 @media (max-width: 700px) {
