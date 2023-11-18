@@ -7,16 +7,19 @@
     position: absolute;
     width: 8%;
     height: 5%;
+}
 
-    @media (max-width: 700px) {
+@media (max-width: 700px) {
+    .file {
         position: relative;
-        width: 25%;
+        width: 110px;
         height: 10%;
         margin-top: 1%;
-        margin-left: 5%;
     }
+}
 
-    @media (min-width: 701px) and (max-width: 1280px) {
+@media (min-width: 701px) and (max-width: 1280px) {
+    .file {
         position: relative;
         width: 15%;
         height: 10%;

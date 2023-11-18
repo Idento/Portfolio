@@ -12,11 +12,12 @@ import './styles/SinglePageApp.css'
 import { setCoordinatesPages, setCoordinates, setOnTop, setRandomCoordinates, toggleMinimized } from "../../../redux";
 import { setCoord } from "../../utils/RandomCoordinates";
 import PortfolioCard from "../cards/PortfolioCard";
-import { BottomNavigation, BottomNavigationAction, Snackbar } from "@mui/material";
+import { BottomNavigation, BottomNavigationAction, IconButton, Snackbar } from "@mui/material";
 import DragItem from "../../utils/dragitems";
 import { useTheme } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
 import { useDrop } from "react-dnd";
+import { Close } from "@mui/icons-material";
 
 
 
@@ -36,8 +37,8 @@ export default function SinglePageApp() {
   const openedPage = useSelector((state) => state.allpage)
   const [maxCoord, setMaxCoord] = useState()
   const [isMobile, setIsMobile] = useState(false)
-  const [pageMove, setPageMove] = useState({ x: 500, y: 500 })
-  const [diffPageMove, setDiffPageMove] = useState()
+  const [open, setOpen] = useState(false)
+  const dispatch = useDispatch()
   const [{ isOver }, drop] = useDrop(() => ({
     accept: ['page', 'text'],
     drop: (item, monitor) => {
@@ -51,13 +52,27 @@ export default function SinglePageApp() {
       }
     }
   }))
-
-  const dispatch = useDispatch()
   const navigate = useNavigate()
   const theme = useTheme()
 
-  const handleMouseAlign = (x, y) => {
-    setDiffPageMove({ diffx: x, diffy: y })
+  let opened = false
+
+
+  const actionSnackBar = (
+    <>
+      <IconButton
+        size="small"
+        aria-label="close"
+        color="white"
+        onClick={handleClose}
+        onTouchStart={handleClose}>
+        <Close />
+      </IconButton>
+    </>
+  )
+
+  function handleClose() {
+    setOpen(false)
   }
 
   function handleChangeBottomNav(event, newValue) {
@@ -97,7 +112,7 @@ export default function SinglePageApp() {
       setIsMobile(true)
       Object.entries(page).map((v, i) => {
         if (v[1].openedWindow && !(v[1].position.x === 0 || v[1].position.y === 0)) {
-          dispatch(setCoordinatesPages({ dragText: v[0], x: xvalue, y: 0 }))
+          dispatch(setCoordinatesPages({ dragText: v[0], x: 0, y: 0 }))
         }
       })
     } else {
@@ -107,13 +122,20 @@ export default function SinglePageApp() {
       }
     }
 
-
     window.addEventListener('resize', handleResize)
 
     return _ => {
       window.removeEventListener('resize', handleResize)
     }
   }, [maxCoord])
+
+  useEffect(() => {
+    const sum = Object.values(openedPage).reduce((acc, currentValue) => acc + currentValue, 0);
+
+    if (sum === 6) {
+      setOpen(true);
+    }
+  }, [openedPage]);
 
 
   return (
@@ -125,7 +147,7 @@ export default function SinglePageApp() {
       })}
       {Object.entries(page).map((v, i) => {
         if (v[1].openedWindow) {
-          return <PortfolioCard text={v[0]} key={i + 10} onDragMouseAlign={handleMouseAlign} mobile={isMobile} maxwidth={maxCoord && maxCoord.maxw} onmoove={pageMove} />
+          return <PortfolioCard text={v[0]} key={i + 10} mobile={isMobile} maxwidth={maxCoord && maxCoord.maxw} />
         }
       })}
 
@@ -139,7 +161,7 @@ export default function SinglePageApp() {
           <BottomNavigationAction
             showLabel={false}
             value={'home'}
-            icon={<Home sx={{ fontSize: 40, color: 'white' }} />}
+            icon={<Home sx={{ fontSize: 35, color: 'white' }} />}
             sx={{ padding: 0, margin: 0, minHeight: '100%', minWidth: '50px', maxWidth: '50px' }} />
           : null}
         {page && Object.entries(page).map((v, i) => {
@@ -150,15 +172,20 @@ export default function SinglePageApp() {
               showLabel={false}
               key={i}
               value={v[0]}
-              icon={React.cloneElement(Icon, { sx: { color: 'white', fontSize: 40 } })}
-              disableRipple />
+              icon={React.cloneElement(Icon, { sx: { color: 'white', fontSize: isMobile ? 40 : 30 } })}
+              disableRipple
+              sx={{ minWidth: isMobile ? "35px" : '40px', maxWidth: isMobile ? "35px" : '40px' }} />
           }
         })}
       </BottomNavigation>
-      {Object.values(openedPage).filter(value => value === true).length === 6 ?
-        <Snackbar open autoHideDuration={3000} message="Merci d'avoir parcouru mon portfolio jusqu'au bout !" />
-        : null}
+
+      <Snackbar
+        open={open}
+        autoHideDuration={16000}
+        message="Merci d'avoir parcouru mon portfolio jusqu'au bout !"
+        onClose={handleClose}
+        action={actionSnackBar}
+      />
+
     </div>)
 }
-
-// onDragOver = { handleDragOver } onDrop = { handleDrop }
