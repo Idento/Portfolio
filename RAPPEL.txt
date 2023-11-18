@@ -32,3 +32,47 @@ A FAIRE: - Version Mobile (fonctionnaliter fait, manque css a la fin)
     // console.log(getfilter);
     // console.log(getProjects);
     // setAllFilter(getfilter)
+
+    
+function MergeTwoArrayWithoutDuplicates(arrayOne, arrayTwo) {
+  const merge = arrayOne.concat(arrayTwo);
+  const noDuplicate = new Set(merge);
+  const arrayWithoutDuplicate = [...noDuplicate];
+  return arrayWithoutDuplicate
+}
+
+
+-----------------------Partie drag and drop
+
+
+onDragOver={handleDragOver} onDrop={handleDrop}
+
+  // const handleDragOver = (event) => {
+  //   event.preventDefault();
+  //   const x = (event.clientX - diffPageMove.diffx);
+  //   const y = (event.clientY - diffPageMove.diffy);
+  //   const step = 50
+  //   if ((pageMove.x - step <= x || pageMove.x - step >= x) || (pageMove.y - step <= y || pageMove.y - step >= y)) {
+
+  //   }
+  //   // DragItem(event, maxCoord.maxh, maxCoord.maxw, dispatch, alignX, alignY, setCoordinates, setCoordinatesPages)
+  // };
+
+  // const handleDrop = (event) => {
+  //   event.preventDefault();
+  //   DragItem(event, maxCoord.maxh, maxCoord.maxw, dispatch, diffPageMove.diffx, diffPageMove.diffy, setCoordinates, setCoordinatesPages)
+  //   if (event.dataTransfer.getData('page')) {
+  //     const severalOpenedWindowTest = Object.entries(page).filter((e) => e[1].openedWindow).length
+  //     if (severalOpenedWindowTest > 1) {
+  //       dispatch(setOnTop({ Text: event.dataTransfer.getData('text') }))
+  //     }
+  //   }
+  // };
+
+  // function setOnTop(item) {
+  //   const severalOpenedWindowTest = Object.entries(page).filter((e) => console.log(e[1])).length
+  //   if (severalOpenedWindowTest > 1) {
+  //     console.log('dragmore');
+
+  //   }
+  // }

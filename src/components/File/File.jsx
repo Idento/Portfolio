@@ -2,21 +2,18 @@ import React, { useRef, useState } from "react";
 import './styles/File.css'
 import { useDispatch, useSelector } from "react-redux";
 import { setToggleWindow, setTrue } from "../../../redux";
+import { useDrag } from "react-dnd";
 
 export default function File({ children, text, x, y }) {
-  const [isDragging, setIsDragging] = useState(false);
   const page = useSelector((state) => state.card)
   const dispatch = useDispatch()
   const dragRef = useRef(null);
+  const [{ isDragging }, drag] = useDrag(() => ({
+    type: 'text',
+    item: { text }
+  }))
 
-  const handleDragStart = (event) => {
-    setIsDragging(true);
-    event.dataTransfer.setData('text', text);
-  };
 
-  const handleDragEnd = () => {
-    setIsDragging(false);
-  };
 
   function handleDblClick(e) {
     if (!page[text].openedWindow) {
@@ -35,10 +32,8 @@ export default function File({ children, text, x, y }) {
   return (
     <div style={{ top: y, left: x }}
       className='file'
-      ref={dragRef}
+      ref={drag}
       draggable='true'
-      onDragStart={handleDragStart}
-      onDragEnd={handleDragEnd}
       onDoubleClick={handleDblClick}
       onTouchStart={handleTouch}
     >

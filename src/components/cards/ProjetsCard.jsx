@@ -3,16 +3,6 @@ import TabPanel from './TabContentComponent/TabContentComponent'
 import './styles/ProjetStyle.css'
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { CropSquare, Square } from '@mui/icons-material'
-
-
-
-function MergeTwoArrayWithoutDuplicates(arrayOne, arrayTwo) {
-  const merge = arrayOne.concat(arrayTwo);
-  const noDuplicate = new Set(merge);
-  const arrayWithoutDuplicate = [...noDuplicate];
-  return arrayWithoutDuplicate
-}
 
 function ProjetsCard() {
   const data = useSelector((state) => state.data['Projets'])

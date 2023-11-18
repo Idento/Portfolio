@@ -5,6 +5,11 @@
     box-sizing: border-box;
 }
 
+.portfolioCard:-moz-drag-over {
+    cursor: default;
+}
+
+
 
 
 

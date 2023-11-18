@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import QueryStats from "@mui/icons-material/QueryStats";
 import ContactPage from "@mui/icons-material/ContactPage";
@@ -16,6 +16,7 @@ import { BottomNavigation, BottomNavigationAction, Snackbar } from "@mui/materia
 import DragItem from "../../utils/dragitems";
 import { useTheme } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
+import { useDrop } from "react-dnd";
 
 
 
@@ -35,18 +36,29 @@ export default function SinglePageApp() {
   const openedPage = useSelector((state) => state.allpage)
   const [maxCoord, setMaxCoord] = useState()
   const [isMobile, setIsMobile] = useState(false)
+  const [pageMove, setPageMove] = useState({ x: 500, y: 500 })
+  const [diffPageMove, setDiffPageMove] = useState()
+  const [{ isOver }, drop] = useDrop(() => ({
+    accept: ['page', 'text'],
+    drop: (item, monitor) => {
+      const { x, y } = monitor.getSourceClientOffset()
+      const typ = monitor.getItemType()
+      if (typ === 'page') {
+        dispatch(setCoordinatesPages({ dragText: item.text, x: x, y: y }))
+        dispatch(setOnTop({ Text: item.text }))
+      } else if (typ === 'text') {
+        dispatch(setCoordinates({ dragText: item.text, x: x, y: y }))
+      }
+    }
+  }))
+
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const theme = useTheme()
 
-  const myref = useRef()
-  let [alignX, alignY] = []
-
-
   const handleMouseAlign = (x, y) => {
-    [alignX, alignY] = [x, y]
+    setDiffPageMove({ diffx: x, diffy: y })
   }
-
 
   function handleChangeBottomNav(event, newValue) {
     if (newValue === 'home') {
@@ -67,24 +79,6 @@ export default function SinglePageApp() {
     }
   }
 
-  const handleDragOver = (event) => {
-    event.preventDefault();
-    event.stopPropagation()
-    // DragItem(event, maxh, maxw, dispatch)
-  };
-
-  const handleDrop = (event) => {
-    event.preventDefault();
-    DragItem(event, maxCoord.maxh, maxCoord.maxw, dispatch, alignX, alignY, setCoordinates, setCoordinatesPages)
-    if (event.dataTransfer.getData('page')) {
-      const severalOpenedWindowTest = Object.entries(page).filter((e) => e[1].openedWindow).length
-      if (severalOpenedWindowTest > 1) {
-        dispatch(setOnTop({ Text: event.dataTransfer.getData('text') }))
-      }
-    }
-  };
-
-
   function handleResize() {
     console.log('resize');
     setMaxCoord({
@@ -93,18 +87,17 @@ export default function SinglePageApp() {
     })
   }
 
-
   useEffect(() => {
-    console.log("test");
     const [maxwidth, maxheight] = [window.innerWidth, window.innerHeight - 100]
     if (!maxCoord || maxCoord.maxh !== maxheight || maxCoord.maxw !== maxwidth) {
       setMaxCoord({ maxw: maxwidth, maxh: maxheight })
     }
+
     if (maxwidth <= 1280) {
       setIsMobile(true)
       Object.entries(page).map((v, i) => {
         if (v[1].openedWindow && !(v[1].position.x === 0 || v[1].position.y === 0)) {
-          dispatch(setCoordinatesPages({ dragText: v[0], x: 0, y: 0 }))
+          dispatch(setCoordinatesPages({ dragText: v[0], x: xvalue, y: 0 }))
         }
       })
     } else {
@@ -124,7 +117,7 @@ export default function SinglePageApp() {
 
 
   return (
-    <div className="maindiv" ref={myref} onDragOver={handleDragOver} onDrop={handleDrop}>
+    <div className="maindiv" ref={drop}>
       {Object.entries(APPSICON).map((v, i) => {
         return <File text={v[0]} key={i} x={!isMobile ? coord[v[0]].x : 'auto'} y={!isMobile ? coord[v[0]].y : 'auto'} >
           {v[1]}
@@ -132,7 +125,7 @@ export default function SinglePageApp() {
       })}
       {Object.entries(page).map((v, i) => {
         if (v[1].openedWindow) {
-          return <PortfolioCard text={v[0]} key={i + 10} onDragMouseAlign={handleMouseAlign} mobile={isMobile} maxwidth={maxCoord && maxCoord.maxw} />
+          return <PortfolioCard text={v[0]} key={i + 10} onDragMouseAlign={handleMouseAlign} mobile={isMobile} maxwidth={maxCoord && maxCoord.maxw} onmoove={pageMove} />
         }
       })}
 
@@ -167,3 +160,5 @@ export default function SinglePageApp() {
         : null}
     </div>)
 }
+
+// onDragOver = { handleDragOver } onDrop = { handleDrop }

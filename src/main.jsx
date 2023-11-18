@@ -8,6 +8,8 @@ import "./styles/index.css";
 import SinglePageApp from "./components/SinglePageApp/SinglePageApp.jsx";
 import { grey } from "@mui/material/colors";
 import { createTheme, ThemeProvider } from "@mui/material";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
 
 const theme = createTheme({
   palette: {
@@ -33,10 +35,12 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <BrowserRouter>
       <Provider store={store}>
         <ThemeProvider theme={theme}>
-          <Routes>
-            <Route path="/" element={<App />} />
-            <Route path="/main" element={<SinglePageApp />} />
-          </Routes>
+          <DndProvider backend={HTML5Backend}>
+            <Routes>
+              <Route path="/" element={<App />} />
+              <Route path="/main" element={<SinglePageApp />} />
+            </Routes>
+          </DndProvider>
         </ThemeProvider>
       </Provider>
     </BrowserRouter>
