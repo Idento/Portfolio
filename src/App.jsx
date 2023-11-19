@@ -12,21 +12,21 @@ function App() {
   const dispatch = useDispatch()
 
   React.useEffect(() => {
-    fetch('../data.json',
-  {
-    headers:{
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
-    }
-  }
-  )
-  .then(function(response){
-    console.log(response);
-    return response.json();
-  })
-  .then(function(jsondata){
-    dispatch(setData(jsondata))
-  })
+    fetch('/public/data.json',
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        }
+      }
+    )
+      .then(function (response) {
+        console.log(response);
+        return response.json();
+      })
+      .then(function (jsondata) {
+        dispatch(setData(jsondata))
+      })
     const progressBarProgression = setInterval(() => {
       setProgress(oldProgress => {
         if (oldProgress < 100) {
@@ -38,7 +38,7 @@ function App() {
       })
     }, 150)
 
-    const waitProgressBar= setTimeout(() =>{
+    const waitProgressBar = setTimeout(() => {
       navigate('/main')
     }, 2200)
 
@@ -48,33 +48,33 @@ function App() {
     }
   }, [])
 
-  
+
 
 
   return (
     <>
-            <Box
-              display={"flex"}
-              justifyContent={"center"}
-              alignItems={"center"}
-              flexDirection={"column"}
-              minHeight={"50vh"}
-              width={"50%"}
-              margin={"auto"}>
+      <Box
+        display={"flex"}
+        justifyContent={"center"}
+        alignItems={"center"}
+        flexDirection={"column"}
+        minHeight={"50vh"}
+        width={"50%"}
+        margin={"auto"}>
 
-              <p className="bonjour">Bonjour</p>
+        <p className="bonjour">Bonjour</p>
 
-              <LinearProgress
-                variant="determinate"
-                className="loadingbar"
-                value={progress}
-                sx={{
-                  width: "20em",
-                  paddingTop: "10px",
-                  opacity: "0",
-                }}
-              />
-            </Box>
+        <LinearProgress
+          variant="determinate"
+          className="loadingbar"
+          value={progress}
+          sx={{
+            width: "20em",
+            paddingTop: "10px",
+            opacity: "0",
+          }}
+        />
+      </Box>
     </>
   )
 }
