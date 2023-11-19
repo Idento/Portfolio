@@ -23,6 +23,29 @@
     }
 }
 
+@keyframes box-out {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+@keyframes box-in {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
 
 
 
@@ -48,9 +71,10 @@
 }
 
 .minimize {
-    display: none;
+    animation: box-out 500ms ease-out forwards;
+    /* display: none; */
 }
 
 .up {
-    display: flex;
+    animation: box-in 500ms ease-out forwards;
 }
