@@ -3,6 +3,7 @@
         top: 500;
         left: 500;
         opacity: 0;
+        scale: 0;
     }
 
     95% {
@@ -11,6 +12,7 @@
     }
 
     100% {
+        scale: 1;
         opacity: 1;
     }
 }
@@ -23,10 +25,19 @@
     align-items: center;
     text-align: center;
     position: absolute;
-    width: 8%;
-    height: 5%;
+    width: 6%;
+    height: 7%;
     animation: getIn 500ms ease-out forwards;
     transition: top 500ms ease-out, left 500ms ease-out;
+    background-color: rgba(255, 255, 255, 0.329);
+}
+
+.file:hover {
+    background-color: rgba(255, 255, 255, 0.500);
+}
+
+.file:active {
+    background-color: rgba(255, 255, 255, 0.800);
 }
 
 @media (max-width: 700px) {
