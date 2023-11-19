@@ -4,7 +4,7 @@
             "id": "1",
             "Titre": "Kasa",
             "description": "Mon premier projet développé avec ReactJS, repose sur l'utilisation de React Router Dom pour créer une application dédiée à une agence immobilière. L'objectif principal était de concevoir des composants réutilisables afin de minimiser la redondance du code et d'offrir une expérience de navigation fluide en dirigeant les utilisateurs vers les pages pertinentes.",
-            "imageURL": "src/assets/Websites/Kasa/Accueil.jpg",
+            "imageURL": "/assets/Websites/Kasa/Accueil.jpg",
             "tags": [
                 "REACT",
                 "SASS"
@@ -13,16 +13,16 @@
             "link": "",
             "date": "Juillet 2023",
             "Images": [
-                "src/assets/Websites/Kasa/Accueil.jpg",
-                "src/assets/Websites/Kasa/Apropos.jpg",
-                "src/assets/Websites/Kasa/Card.jpg"
+                "/assets/Websites/Kasa/Accueil.jpg",
+                "/assets/Websites/Kasa/Apropos.jpg",
+                "/assets/Websites/Kasa/Card.jpg"
             ]
         },
         {
             "id": "2",
             "Titre": "Sophie Bluel",
             "description": "Projet de développement d'une page web dynamique en utilisant JavaScript. L'objectif central était de réaliser des appels API permettant une connexion en tant qu'administrateur sur le site, avec la possibilité d'ajouter de nouveaux projets à la vitrine existante.",
-            "imageURL": "src/assets/Websites/sophiebluel/Accueil(2).jpg",
+            "imageURL": "/assets/Websites/sophiebluel/Accueil(2).jpg",
             "tags": [
                 "HTML",
                 "SASS",
@@ -32,19 +32,19 @@
             "link": "",
             "date": "Juin 2023",
             "Images": [
-                "src/assets/Websites/sophiebluel/Accueil(2).jpg",
-                "src/assets/Websites/sophiebluel/LoginPage.jpg",
-                "src/assets/Websites/sophiebluel/UserConnected.jpg",
-                "src/assets/Websites/sophiebluel/modalEditProject.jpg",
-                "src/assets/Websites/sophiebluel/addproject.jpg",
-                "src/assets/Websites/sophiebluel/projectAdded.jpg"
+                "/assets/Websites/sophiebluel/Accueil(2).jpg",
+                "/assets/Websites/sophiebluel/LoginPage.jpg",
+                "/assets/Websites/sophiebluel/UserConnected.jpg",
+                "/assets/Websites/sophiebluel/modalEditProject.jpg",
+                "/assets/Websites/sophiebluel/addproject.jpg",
+                "/assets/Websites/sophiebluel/projectAdded.jpg"
             ]
         },
         {
             "id": "3",
             "Titre": "Site web personnel",
             "description": "Projet de developement web creer en autodidacte, l'objectif etait de fournir des applications bureautique develloper en python en experimentant differente methode de rendu GUI python",
-            "imageURL": "src/assets/Idento_siteweb.jpg",
+            "imageURL": "/assets/Idento_siteweb.jpg",
             "tags": [
                 "HTML",
                 "CSS",
@@ -54,18 +54,18 @@
             "link": "",
             "date": "Janvier 2023",
             "Images": [
-                "src/assets/Websites/Idento/Accueil Idento.jpg",
-                "src/assets/Websites/Idento/Downloader.jpg",
-                "src/assets/Websites/Idento/Tutoriel downloader.jpg",
-                "src/assets/Websites/Idento/Tuto downloader suite.jpg",
-                "src/assets/Websites/Idento/About your pc.jpg"
+                "/assets/Websites/Idento/Accueil Idento.jpg",
+                "/assets/Websites/Idento/Downloader.jpg",
+                "/assets/Websites/Idento/Tutoriel downloader.jpg",
+                "/assets/Websites/Idento/Tuto downloader suite.jpg",
+                "/assets/Websites/Idento/About your pc.jpg"
             ]
         },
         {
             "id": "4",
             "Titre": "Mariage",
             "description": "Site web creer en autodidacte a l'occasion du mariage d'une amie.",
-            "imageURL": "src/assets/Websites/mariage/Accueil.jpg",
+            "imageURL": "/assets/Websites/mariage/Accueil.jpg",
             "tags": [
                 "HTML",
                 "CSS",
@@ -75,16 +75,16 @@
             "link": "",
             "date": "Janvier 2023",
             "Images": [
-                "src/assets/Websites/mariage/Accueil.jpg",
-                "src/assets/Websites/mariage/Histoire.jpg",
-                "src/assets/Websites/mariage/DetailsRsvp.jpg"
+                "/assets/Websites/mariage/Accueil.jpg",
+                "/assets/Websites/mariage/Histoire.jpg",
+                "/assets/Websites/mariage/DetailsRsvp.jpg"
             ]
         },
         {
             "id": "5",
             "Titre": "Horizon",
             "description": "Projet de site web dévelopé pendant la formation entre deux projet de formation, l'objectif était de fournir un site contemplatif par son affichage pouvant être minimiser avec des outils utiles",
-            "imageURL": "src/assets/Websites/Horizon/First.jpg",
+            "imageURL": "/assets/Websites/Horizon/First.jpg",
             "tags": [
                 "REACT",
                 "SASS"
@@ -93,16 +93,16 @@
             "link": "",
             "date": "Septembre 2023",
             "Images": [
-                "src/assets/Websites/Horizon/First.jpg",
-                "src/assets/Websites/Horizon/Second.jpg",
-                "src/assets/Websites/Horizon/Third.jpg",
-                "src/assets/Websites/Horizon/fourth.jpg"
+                "/assets/Websites/Horizon/First.jpg",
+                "/assets/Websites/Horizon/Second.jpg",
+                "/assets/Websites/Horizon/Third.jpg",
+                "/assets/Websites/Horizon/fourth.jpg"
             ]
         }
     ],
     "Presentation": {
         "Nom": "TSOURI Maxime",
-        "Photo": "src/assets/profilphoto.jpg",
+        "Photo": "/assets/profilphoto.jpg",
         "Age": 28,
         "Phrase": "Passionné par la création web, je m'efforce de concevoir des expériences en ligne captivantes et fonctionnelles, mettant l'accent sur l'impact positif pour les utilisateurs.",
         "Courte_presentation": "Animée par ma passion pour l'informatique depuis mon adolescence, je m'engage aujourd'hui dans une reconversion professionnelle vers le développement web, après un passage en tant que technicien informatique, j'ai réalisé que ma véritable passion réside dans le développement web. Cette expérience a été instructive, mais c'est maintenant dans le monde du code que je trouve ma véritable motivation et satisfaction professionnelle. Mon parcours reflète mon dévouement envers le monde de la technologie, et je suis enthousiaste à l'idée d'apporter ma passion et mes compétences au service de projets web innovants."
@@ -135,49 +135,49 @@
         "Language": {
             "HTML": {
                 "value": 85,
-                "icon": "src/assets/html5.svg"
+                "icon": "/assets/html5.svg"
             },
             "CSS": {
                 "value": 90,
-                "icon": "src/assets/css3.svg"
+                "icon": "/assets/css3.svg"
             },
             "SASS": {
                 "value": 60,
-                "icon": "src/assets/sass.svg"
+                "icon": "/assets/sass.svg"
             },
             "JavaScript": {
                 "value": 60,
-                "icon": "src/assets/js.svg"
+                "icon": "/assets/js.svg"
             },
             "Python": {
                 "value": 60,
-                "icon": "src/assets/python.svg"
+                "icon": "/assets/python.svg"
             },
             "REACT": {
                 "value": 70,
-                "icon": "src/assets/react.svg"
+                "icon": "/assets/react.svg"
             },
             "ReduxJS-Toolkit": {
                 "value": 60,
-                "icon": "src/assets/redux-icon.svg"
+                "icon": "/assets/redux-icon.svg"
             },
             "SQLite": {
                 "value": 70,
-                "icon": "src/assets/sqlite-icon.svg"
+                "icon": "/assets/sqlite-icon.svg"
             }
         },
         "Autres": {
             "GIT": {
                 "value": 60,
-                "icon": "src/assets/github.svg"
+                "icon": "/assets/github.svg"
             },
             "Figma": {
                 "value": 30,
-                "icon": "src/assets/figma.svg"
+                "icon": "/assets/figma.svg"
             },
             "Responsive": {
                 "value": 90,
-                "icon": "src/assets/tablet-screen-button-solid.svg"
+                "icon": "/assets/tablet-screen-button-solid.svg"
             }
         }
     },
@@ -189,11 +189,11 @@
     "Reseau": {
         "Linkedin": {
             "url": "https://www.linkedin.com/in/maxime-t-abba4a188/",
-            "icon": "src/assets/linkedin.svg"
+            "icon": "/assets/linkedin.svg"
         },
         "Discord": {
             "url": "https://discord.gg/mjxSuUZ5yM",
-            "icon": "src/assets/discord.svg"
+            "icon": "/assets/discord.svg"
         }
     }
 }
