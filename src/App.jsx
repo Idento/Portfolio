@@ -12,7 +12,7 @@ function App() {
   const dispatch = useDispatch()
 
   React.useEffect(() => {
-    fetch('/public/data.json',
+    fetch('./public/data.json',
       {
         headers: {
           'Content-Type': 'application/json',

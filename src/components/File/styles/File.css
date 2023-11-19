@@ -25,6 +25,7 @@
     align-items: center;
     text-align: center;
     position: absolute;
+    cursor: default;
     width: 6%;
     height: 7%;
     animation: getIn 500ms ease-out forwards;
