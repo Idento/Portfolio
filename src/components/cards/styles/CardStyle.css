@@ -3,6 +3,7 @@
     flex-direction: column;
     width: 500px;
     box-sizing: border-box;
+
 }
 
 .portfolioCard:-moz-drag-over {

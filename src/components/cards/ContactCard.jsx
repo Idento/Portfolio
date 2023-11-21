@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './styles/Contactstyle.css'
 import { Box, Card, TextField, Button, Divider, useTheme } from '@mui/material'
 import { useSelector } from 'react-redux'
@@ -7,6 +7,7 @@ import { Send } from '@mui/icons-material'
 
 function ContactCard() {
   const data = useSelector((state) => state.data['Reseau'])
+  const [submit, setSubmit] = useState(false)
   const theme = useTheme()
   const boxstyle = {
     backgroundColor: 'white',
@@ -27,19 +28,31 @@ function ContactCard() {
     boxSizing: 'border-box',
     borderRadius: '3px',
   }
-  console.log('testcontact');
+  // function handleSubmitForm() {
+  //   setSubmit(true);
+
+  //   const setSubmitOff = setTimeout(() => {
+  //     setSubmit(false)
+  //   }, 3000)
+  // }
+
   return (
     <div className='containerContact'>
 
-      <form className='formContact' >
+      <form className='formContact'
+        action="https://formkeep.com/f/a2f2f2cb7588"
+        acceptCharset="UTF-8"
+        encType='multipart/form-data'
+        method='POST'
+      >
         <div className='topForm'><h1>Formulaire de contact</h1></div>
-        <Box component={'div'} sx={boxstyle}>
+        <Box component={'div'} sx={boxstyle} className='contactBox'>
           <TextField label='Nom Complet' required sx={textFieldStyle} />
           <TextField label='Adresse mail' required type='email' sx={textFieldStyle} />
           <TextField label='Objet' required sx={textFieldStyle} />
           <TextField label='Message' required multiline rows={5} sx={textFieldStyle} />
-          <Button className='buttonFormContact' variant="contained" endIcon={<Send />}>
-            Send
+          <Button className='buttonFormContact' variant="contained" endIcon={<Send />} type='submit'>
+            Envoyer
           </Button>
         </Box>
       </form>

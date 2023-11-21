@@ -30,16 +30,14 @@
     height: 7%;
     animation: getIn 500ms ease-out forwards;
     transition: top 500ms ease-out, left 500ms ease-out;
-    background-color: rgba(255, 255, 255, 0.329);
+    background-color: rgba(255, 255, 255, 0.212);
+    white-space: nowrap;
 }
 
 .file:hover {
     background-color: rgba(255, 255, 255, 0.500);
 }
 
-.file:active {
-    background-color: rgba(255, 255, 255, 0.800);
-}
 
 @media (max-width: 700px) {
     .file {

@@ -16,7 +16,6 @@ import { Alert, BottomNavigation, BottomNavigationAction, IconButton, Snackbar }
 import { useTheme } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
 import { useDrop } from "react-dnd";
-import { Close } from "@mui/icons-material";
 
 
 
@@ -34,6 +33,7 @@ export default function SinglePageApp() {
   const page = useSelector((state) => state.card)
   const coord = useSelector((state) => state.icon)
   const openedPage = useSelector((state) => state.allpage)
+  const data = useSelector((state) => state.data)
   const [maxCoord, setMaxCoord] = useState()
   const [isMobile, setIsMobile] = useState(false)
   const [open, setOpen] = useState(false)
@@ -41,20 +41,25 @@ export default function SinglePageApp() {
   const [{ isOver }, drop] = useDrop(() => ({
     accept: ['page', 'text'],
     drop: (item, monitor) => {
-      const { x, y } = monitor.getSourceClientOffset()
+      let { x, y } = monitor.getSourceClientOffset()
       const typ = monitor.getItemType()
       if (typ === 'page') {
         dispatch(setCoordinatesPages({ dragText: item.text, x: x, y: y }))
         dispatch(setOnTop({ Text: item.text }))
       } else if (typ === 'text') {
+
         dispatch(setCoordinates({ dragText: item.text, x: x, y: y }))
       }
     }
   }))
+
   const navigate = useNavigate()
   const theme = useTheme()
   let delay = 0
 
+  if (Object.keys(data).length === 0) {
+    navigate('/')
+  }
 
   const actionSnackBar = (
     <>

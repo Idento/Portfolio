@@ -33,7 +33,7 @@
 @media (min-width:320px) and (max-width: 700px) {
     .projectContainer {
         width: 100%;
-        min-height: 93%;
+        min-height: 100%;
     }
 
     .projectTabsContainer {

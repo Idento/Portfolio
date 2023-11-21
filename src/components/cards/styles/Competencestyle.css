@@ -34,7 +34,7 @@
 @media (min-width:320px) and (max-width: 700px) {
     .container {
         width: 100%;
-        min-height: 93%;
+        height: 100%;
         overflow: auto;
     }
 
