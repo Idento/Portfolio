@@ -31,17 +31,6 @@ function ContactCard() {
     borderRadius: '3px',
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault(); // Empêche le rechargement de la page
-    const formData = new FormData(e.target);
-    const formObject = {};
-    formData.forEach((value, key) => {
-      formObject[key] = value;
-    });
-    console.log('Formulaire soumis avec les données:', formObject);
-    // Ajoutez ici la logique pour envoyer les données à votre backend, etc.
-  };
-
   return (
     <div className='containerContact'>
 
@@ -51,7 +40,7 @@ function ContactCard() {
           component="form"
           sx={boxstyle}
           className='contactBox'
-          action='https://formspree.io/f/xbjveeaj'
+          action={FORMDATALINK}
           method='POST'>
           <TextField label='Nom Complet' name='Full Name' required sx={textFieldStyle} />
           <TextField label='Adresse mail' name='Email' required type='email' sx={textFieldStyle} />
