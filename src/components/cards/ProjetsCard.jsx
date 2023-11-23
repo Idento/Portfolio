@@ -4,6 +4,7 @@ import './styles/ProjetStyle.css'
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { MemoizedCarrousel } from './carrousel/carrousel'
+import { Link } from '@mui/icons-material'
 
 function ProjetsCard() {
   const data = useSelector((state) => state.data['Projets'])
@@ -44,6 +45,7 @@ function ProjetsCard() {
             return <Tab label={v.toString()} key={`tab ${i}`} />
           })}
         </Tabs>
+
         <div className="projectTabsContainer">
           {projects && Object.entries(projects).map((v, i) => {
             return <TabPanel value={value} index={i} key={`Tab${i}`} >
@@ -55,14 +57,26 @@ function ProjetsCard() {
                   <CardContent>
                     <h4 className='title__card'>{va.Titre}</h4>
                     <p className='description__card'>{va.description} <br /> {va.date}</p>
-                    <Stack direction={'row'} display={'flex'} gap={'2%'}>
+                    <Stack direction={'row'} display={'flex'} gap={'2%'} justifyContent={'flex-start'}>
                       {va.tags.map((val, ind) => {
                         return <Chip label={`${val}`} key={`chip${ind}`} sx={{ padding: "0 2%" }} />
                       })}
+                      {va.link ?
+                        <Chip
+                          component="a"
+                          href={`${va.link}`}
+                          label="Lien"
+                          key={`chipLink ${id}`}
+                          icon={<Link />}
+                          sx={{ cursor: 'pointer', marginLeft: 'auto' }}
+                          target='_blank'
+                          rel='noopener noreferrer' />
+                        : null}
                     </Stack>
                   </CardContent>
                 </Card>
               })}
+
             </TabPanel>
           })}
         </div>

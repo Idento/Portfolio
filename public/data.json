@@ -10,7 +10,7 @@
                 "SASS"
             ],
             "contexte": "Formation",
-            "link": "",
+            "link": "https://kasaproject-le3fq4a4o-tsouri-maximes-projects.vercel.app/",
             "date": "Juillet 2023",
             "Images": [
                 "/assets/Websites/Kasa/Accueil.jpg",
@@ -29,7 +29,7 @@
                 "JS"
             ],
             "contexte": "Formation",
-            "link": "",
+            "link": false,
             "date": "Juin 2023",
             "Images": [
                 "/assets/Websites/sophiebluel/Accueil(2).jpg",
@@ -51,7 +51,7 @@
                 "JS"
             ],
             "contexte": "Personnel",
-            "link": "",
+            "link": "https://idento.github.io/",
             "date": "Janvier 2023",
             "Images": [
                 "/assets/Websites/Idento/Accueil Idento.jpg",
@@ -72,7 +72,7 @@
                 "JS"
             ],
             "contexte": "Personnel",
-            "link": "",
+            "link": false,
             "date": "Janvier 2023",
             "Images": [
                 "/assets/Websites/mariage/Accueil.jpg",
@@ -90,7 +90,7 @@
                 "SASS"
             ],
             "contexte": "Personnel",
-            "link": "",
+            "link": false,
             "date": "Septembre 2023",
             "Images": [
                 "/assets/Websites/Horizon/First.jpg",

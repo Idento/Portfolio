@@ -23,6 +23,10 @@
     position: fixed;
 }
 
+.down {
+    bottom: -40px;
+}
+
 .navButton:hover {
     background-color: rgba(255, 255, 255, 0.473);
 }

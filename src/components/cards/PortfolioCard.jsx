@@ -58,7 +58,6 @@ export default function PortfolioCard({ text, mobile = false, maxwidth, onmoove 
   }
 
   function handleClick(e) {
-    e.preventDefault()
     const severalOpenedWindowTest = Object.entries(nameCard).filter((e) => e[1].openedWindow).length
     if (severalOpenedWindowTest > 1) {
       dispatch(setOnTop({ Text: text }))

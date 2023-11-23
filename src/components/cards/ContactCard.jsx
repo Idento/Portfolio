@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import './styles/Contactstyle.css'
-import { Box, Card, TextField, Button, Divider, useTheme } from '@mui/material'
+import { Box, Card, TextField, Button, Divider, useTheme, FormControl } from '@mui/material'
 import { useSelector } from 'react-redux'
 import { Send } from '@mui/icons-material'
+import { FORMDATALINK } from '../../utils/formContactData'
+import { Link } from 'react-router-dom'
 
 
 function ContactCard() {
@@ -28,34 +30,38 @@ function ContactCard() {
     boxSizing: 'border-box',
     borderRadius: '3px',
   }
-  // function handleSubmitForm() {
-  //   setSubmit(true);
 
-  //   const setSubmitOff = setTimeout(() => {
-  //     setSubmit(false)
-  //   }, 3000)
-  // }
+  const handleSubmit = (e) => {
+    e.preventDefault(); // Empêche le rechargement de la page
+    const formData = new FormData(e.target);
+    const formObject = {};
+    formData.forEach((value, key) => {
+      formObject[key] = value;
+    });
+    console.log('Formulaire soumis avec les données:', formObject);
+    // Ajoutez ici la logique pour envoyer les données à votre backend, etc.
+  };
 
   return (
     <div className='containerContact'>
 
-      <form className='formContact'
-        action="https://formkeep.com/f/a2f2f2cb7588"
-        acceptCharset="UTF-8"
-        encType='multipart/form-data'
-        method='POST'
-      >
+      <div className='formContact'>
         <div className='topForm'><h1>Formulaire de contact</h1></div>
-        <Box component={'div'} sx={boxstyle} className='contactBox'>
-          <TextField label='Nom Complet' required sx={textFieldStyle} />
-          <TextField label='Adresse mail' required type='email' sx={textFieldStyle} />
-          <TextField label='Objet' required sx={textFieldStyle} />
-          <TextField label='Message' required multiline rows={5} sx={textFieldStyle} />
-          <Button className='buttonFormContact' variant="contained" endIcon={<Send />} type='submit'>
+        <Box
+          component="form"
+          sx={boxstyle}
+          className='contactBox'
+          action='https://formspree.io/f/xbjveeaj'
+          method='POST'>
+          <TextField label='Nom Complet' name='Full Name' required sx={textFieldStyle} />
+          <TextField label='Adresse mail' name='Email' required type='email' sx={textFieldStyle} />
+          <TextField label='Objet' name='Objet' required sx={textFieldStyle} />
+          <TextField label='Message' name='Message' required multiline rows={5} sx={textFieldStyle} />
+          <Button type="submit" className='buttonFormContact' variant="contained" endIcon={<Send />} >
             Envoyer
           </Button>
         </Box>
-      </form>
+      </div>
       <Divider className='formContactDivider' variant='middle' sx={{
         color: 'white',
         width: '100%',
@@ -70,7 +76,7 @@ function ContactCard() {
       <div className='social__container'>
         {data && Object.entries(data).map((v, i) => {
           return <Card sx={{ display: 'flex', height: "50px", width: '50px', borderRadius: '50%', position: 'relative' }} elevation={3} key={`c${i}`}>
-            <a href={v[1].url} target='_blank' />
+            <a href={v[1].url} target='_blank' className='linkToSocial' rel='noopener noreferrer' />
             <img src={v[1].icon} alt={`icon ${v[0].toString()}`} className='iconContact' />
           </Card>
         })}

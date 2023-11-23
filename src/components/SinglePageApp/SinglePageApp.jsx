@@ -57,9 +57,6 @@ export default function SinglePageApp() {
   const theme = useTheme()
   let delay = 0
 
-  if (Object.keys(data).length === 0) {
-    navigate('/')
-  }
 
   const actionSnackBar = (
     <>
@@ -121,6 +118,9 @@ export default function SinglePageApp() {
       if (!maxCoord || maxCoord.maxw >= maxwidth - 100 || maxCoord.maxw <= maxwidth + 100) {
         dispatch(setRandomCoordinates({ coordinates: setCoord(maxwidth, maxheight) }))
       }
+    }
+    if (Object.keys(data).length === 0) {
+      navigate('/')
     }
 
     window.addEventListener('resize', handleResize)
