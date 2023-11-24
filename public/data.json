@@ -138,7 +138,7 @@
                 "icon": "/assets/html5.svg"
             },
             "CSS": {
-                "value": 90,
+                "value": 80,
                 "icon": "/assets/css3.svg"
             },
             "SASS": {
@@ -154,7 +154,7 @@
                 "icon": "/assets/python.svg"
             },
             "REACT": {
-                "value": 70,
+                "value": 60,
                 "icon": "/assets/react.svg"
             },
             "ReduxJS-Toolkit": {
@@ -176,7 +176,7 @@
                 "icon": "/assets/figma.svg"
             },
             "Responsive": {
-                "value": 90,
+                "value": 80,
                 "icon": "/assets/tablet-screen-button-solid.svg"
             }
         }
@@ -192,7 +192,7 @@
             "icon": "/assets/linkedin.svg"
         },
         "Discord": {
-            "url": "https://discord.gg/mjxSuUZ5yM",
+            "url": "https://discord.gg/KN3h3u7Nx6",
             "icon": "/assets/discord.svg"
         }
     }
