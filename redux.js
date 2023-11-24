@@ -31,7 +31,7 @@ const cardSlice = createSlice({
         'Parcours': { position: { x: 300, y: 100 }, openedWindow: false, zindex: 0, minimize: false },
         "Centre d'intérêt": { position: { x: 400, y: 100 }, openedWindow: false, zindex: 0, minimize: false },
         'Présentation': { position: { x: 500, y: 100 }, openedWindow: false, zindex: 0, minimize: false },
-        'Projets': { position: { x: 600, y: 100 }, openedWindow: false, zindex: 0, minimize: false }
+        'Projets': { position: { x: 800, y: 100 }, openedWindow: false, zindex: 0, minimize: false }
     },
     reducers: {
         setCoordinatesPages: (state, action) => {

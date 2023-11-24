@@ -6,6 +6,7 @@ import { useDrag } from "react-dnd";
 
 export default function File({ children, text, x, y, animdelay }) {
   const page = useSelector((state) => state.card)
+  const openedOnce = useSelector((state) => state.allpage[text])
   const dispatch = useDispatch()
   const dragRef = useRef(null);
   const [{ isDragging }, drag] = useDrag(() => ({
@@ -14,6 +15,7 @@ export default function File({ children, text, x, y, animdelay }) {
   }))
   const [animationEnded, setAnimationEnded] = useState(false)
   const [transitionEnded, setTransitionEnded] = useState(false)
+  const firstwindows = ['Présentation', 'Projets', 'Compétence']
 
 
 
@@ -23,6 +25,10 @@ export default function File({ children, text, x, y, animdelay }) {
 
   function handleTransitionEnded() {
     setTransitionEnded(true)
+    if (firstwindows.includes(text) && !openedOnce) {
+      dispatch(setToggleWindow({ Text: text }))
+      dispatch(setTrue({ trueText: text }))
+    }
   }
 
   function handleDblClick(e) {
@@ -54,6 +60,8 @@ export default function File({ children, text, x, y, animdelay }) {
       onAnimationEnd={handleEndOfAnimation}
       onTransitionEnd={handleTransitionEnded}
     >
+      {!openedOnce ? <div className="dot"></div> : ''}
+
       {children && children}
       <span>{text}</span>
     </div>

@@ -7,7 +7,6 @@ import { Button, Card } from '@mui/material'
 function PresentationCard() {
   const introduceData = useSelector((state) => state.data['Presentation'])
   const [show, setShow] = useState(false)
-  console.log('test presentation');
 
   function handleShowMore(e) {
     setShow(true)

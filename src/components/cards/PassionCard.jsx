@@ -5,7 +5,6 @@ import { useSelector } from 'react-redux'
 
 function PassionCard() {
   const hobby = useSelector((state) => state.data['Passion'])
-  console.log('tesssst passion');
   return (
     <div className='hobbyContainer'>
       {hobby && Object.entries(hobby).map((v, i) => {

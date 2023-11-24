@@ -12,7 +12,7 @@ import './styles/SinglePageApp.css'
 import { setCoordinatesPages, setCoordinates, setOnTop, setRandomCoordinates, toggleMinimized } from "../../../redux";
 import { setCoord } from "../../utils/RandomCoordinates";
 import PortfolioCard from "../cards/PortfolioCard";
-import { Alert, BottomNavigation, BottomNavigationAction, IconButton, Snackbar } from "@mui/material";
+import { Alert, Badge, BottomNavigation, BottomNavigationAction, IconButton, Snackbar } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
 import { useDrop } from "react-dnd";
@@ -93,7 +93,6 @@ export default function SinglePageApp() {
   }
 
   function handleResize() {
-    console.log('resize');
     setMaxCoord({
       maxh: window.innerHeight,
       maxw: window.innerWidth

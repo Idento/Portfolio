@@ -1,7 +1,7 @@
 
 export function setCoord(maxw, maxh) {
     const settingcoord = [];
-    const gridSize = 100; // Taille de la grille
+    const gridSize = 100;
 
     // Imaginons que ces constantes représentent la taille maximale de l'espace
     let maxwidth = maxw;

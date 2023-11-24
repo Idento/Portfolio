@@ -17,7 +17,6 @@ function CompetenceCard() {
   }
 
   useEffect(() => {
-    console.log('test Competence');
     const updateText = () => {
       setLoadingText(textContent.slice(0, currentIndex));
       currentIndex++;

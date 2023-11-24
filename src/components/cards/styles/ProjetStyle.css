@@ -30,6 +30,15 @@
     text-indent: 10px;
 }
 
+.Date {
+    display: block;
+    letter-spacing: 0.1em;
+    font-size: 15px;
+    line-height: 22px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
 @media (min-width:320px) and (max-width: 700px) {
     .projectContainer {
         width: 100%;

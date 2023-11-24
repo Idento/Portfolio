@@ -4,7 +4,6 @@ import './styles/LinearProgressStyles.css'
 
 export default function LinearProgresswLabel({ text, maxProgress, image }) {
   const [advance, setAdvance] = useState(0)
-  console.log(text, maxProgress, image);
   useEffect(() => {
     const timer = setInterval(() => {
       setAdvance((prevadvance) => (prevadvance >= maxProgress ? maxProgress : prevadvance + 1));

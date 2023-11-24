@@ -56,7 +56,8 @@ function ProjetsCard() {
                   </CardActionArea>
                   <CardContent>
                     <h4 className='title__card'>{va.Titre}</h4>
-                    <p className='description__card'>{va.description} <br /> {va.date}</p>
+                    <p className='description__card'>{va.description}</p>
+                    <span className='Date'> Date de creation: {va.date}</span>
                     <Stack direction={'row'} display={'flex'} gap={'2%'} justifyContent={'flex-start'}>
                       {va.tags.map((val, ind) => {
                         return <Chip label={`${val}`} key={`chip${ind}`} sx={{ padding: "0 2%" }} />
@@ -65,6 +66,7 @@ function ProjetsCard() {
                         <Chip
                           component="a"
                           href={`${va.link}`}
+                          variant='outlined'
                           label="Lien"
                           key={`chipLink ${id}`}
                           icon={<Link />}

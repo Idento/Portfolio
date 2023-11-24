@@ -67,7 +67,6 @@ function Carrousel({ data, close, openDialog }) {
 
     useEffect(() => {
         const old = (state.actualTableImg - 1) === -1 ? images.length - 1 : (state.actualTableImg - 1)
-        console.log(old);
         if (myref && myref.current) {
             if (myref.current && myref.current.children[old].classList.contains('actual')) {
                 myref.current.children[old].classList.remove('actual')

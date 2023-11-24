@@ -21,7 +21,7 @@
         {
             "id": "2",
             "Titre": "Sophie Bluel",
-            "description": "Projet de développement d'une page web dynamique en utilisant JavaScript. L'objectif central était de réaliser des appels API permettant une connexion en tant qu'administrateur sur le site, avec la possibilité d'ajouter de nouveaux projets à la vitrine existante.",
+            "description": "Projet de développement d'une page web dynamique en utilisant JavaScript. L'objectif central était de réaliser des appels API permettant une connexion en tant qu'administrateur sur le site, avec la possibilité d'ajouter ou supprimer des projets à la vitrine existante a l'aide d'une modale.",
             "imageURL": "/assets/Websites/sophiebluel/Accueil(2).jpg",
             "tags": [
                 "HTML",

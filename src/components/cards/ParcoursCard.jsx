@@ -6,7 +6,6 @@ import { useSelector } from 'react-redux'
 
 function ParcoursCard() {
   const data = useSelector((state) => state.data['Parcours'])
-  console.log('test parcours');
   return (
     <div className='courseContainer'>
 

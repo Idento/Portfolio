@@ -1,5 +1,5 @@
 import './styles/CardStyle.css'
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { MemoizedCompetenceCard } from './CompetenceCard'
 import { MemoizedContactCard } from './ContactCard'
 import { MemoizedParcoursCard } from './ParcoursCard'
