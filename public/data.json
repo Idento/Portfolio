@@ -29,7 +29,7 @@
                 "JS"
             ],
             "contexte": "Formation",
-            "link": false,
+            "link": "https://github.com/Idento/SophieBluel",
             "date": "Juin 2023",
             "Images": [
                 "/assets/Websites/sophiebluel/Accueil(2).jpg",
@@ -90,7 +90,7 @@
                 "SASS"
             ],
             "contexte": "Personnel",
-            "link": false,
+            "link": "https://github.com/Idento/Horizon",
             "date": "Septembre 2023",
             "Images": [
                 "/assets/Websites/Horizon/First.jpg",
