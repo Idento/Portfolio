@@ -11,7 +11,7 @@ function ParcoursCard() {
 
       <div className="timeline">
         {data && Object.entries(data).map((v, i) => {
-          return <Accordion key={i} sx={{ width: '100%' }} >
+          return <Accordion key={i} className='accordion' >
             <AccordionSummary expandIcon={<ExpandMoreOutlined />}>
               {v[0]}
             </AccordionSummary>
@@ -19,7 +19,7 @@ function ParcoursCard() {
               {console.log(v)}
               {Object.entries(v[1]).map((va, id) => {
                 return <div className={`headContentCell`} key={id}>
-                  <Divider>
+                  <Divider className='divParcoursCategorie' sx={{ whiteSpace: "normal" }}>
                     <h3 className='parcoursCategorie'>{va[0]}</h3>
                   </Divider>
                   <h4 className='intitulerTitle'>{va[1].Intitulé}</h4>

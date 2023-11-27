@@ -1,5 +1,5 @@
 import { ArrowBack, ArrowForward } from '@mui/icons-material'
-import { Dialog, DialogContent, DialogTitle, Paper } from '@mui/material'
+import { Button, Dialog, DialogContent, DialogTitle, DialogActions } from '@mui/material'
 import React, { useCallback, useEffect, useReducer, useRef, useState } from 'react'
 import './styles/carrousel.css'
 
@@ -50,6 +50,7 @@ function Carrousel({ data, close, openDialog }) {
         actualTableImg: 0,
         actualCountImg: 1
     })
+    const [mobile, setMobile] = useState(false)
     const [open, setOpen] = useState(openDialog)
     const myref = useRef(null)
 
@@ -76,10 +77,14 @@ function Carrousel({ data, close, openDialog }) {
 
     }, [state.actualTableImg, myref])
 
+    useEffect(() => {
+        setMobile(window.innerWidth < 1280 ? true : false)
+    }, [])
+
 
     return (
-        <Dialog open={open} onClose={handleClose} fullWidth maxWidth="lg" >
-            <DialogTitle sx={{ textAlign: 'center', borderBottom: "1px solid rgba(0, 0, 0, 0.514)" }} >Photos du projet "{data.Titre}"</DialogTitle>
+        <Dialog open={open} onClose={handleClose} fullScreen={mobile} maxWidth="lg" >
+            <DialogTitle className='title' sx={{ textAlign: 'center', borderBottom: "1px solid rgba(0, 0, 0, 0.514)" }} >Photos du projet "{data.Titre}" </DialogTitle>
             <DialogContent sx={{ padding: 0 }}>
                 <div className="containerCarrousel">
                     <div onClick={handleprevious} className='arrow left'>
@@ -97,6 +102,9 @@ function Carrousel({ data, close, openDialog }) {
                     </div>
                 </div>
             </DialogContent>
+            {mobile ? <DialogActions>
+                <Button onClick={handleClose}>Close</Button>
+            </DialogActions> : null}
         </Dialog>
     )
 }

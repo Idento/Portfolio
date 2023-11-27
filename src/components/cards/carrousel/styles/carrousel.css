@@ -59,6 +59,10 @@
         right: 95%;
     }
 
+    .title {
+        font-size: 12px;
+    }
+
     .right {
         justify-content: center;
         left: 95%;

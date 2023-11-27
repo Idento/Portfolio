@@ -42,12 +42,16 @@
 @media (min-width:320px) and (max-width: 700px) {
     .projectContainer {
         width: 100%;
-        min-height: 100%;
+        height: 93%;
     }
 
     .projectTabsContainer {
         height: 93%;
         margin-bottom: 5%;
+    }
+
+    #simple-tabpanel-0 .MuiBox-root {
+        padding: 24px 10px 24px 10px;
     }
 }
 

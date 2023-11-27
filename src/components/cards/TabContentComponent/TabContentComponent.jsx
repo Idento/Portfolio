@@ -16,7 +16,8 @@ export default function TabPanel({ children, value, index }) {
                     display: 'flex',
                     flexDirection: 'column',
                     gap: '15px'
-                }}>
+                }}
+                >
                     {children}
                 </Box>
             )}
