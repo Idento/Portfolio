@@ -9,7 +9,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    overflow: auto;
 }
 
 .timeline {
@@ -63,7 +62,8 @@
         width: 100%;
         height: 100%;
         padding: 2% 0% 1% 0%;
-        overflow: unset;
+        overflow: auto;
+
     }
 
     .underAccordion {
