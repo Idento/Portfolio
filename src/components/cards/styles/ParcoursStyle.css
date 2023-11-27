@@ -97,6 +97,10 @@
 @media (min-width:701px) and (max-width: 1280px) {
     .courseContainer {
         min-width: 100%;
-        height: 100%;
+        height: 93%;
+    }
+
+    .intitulerTitle::after {
+        left: -15px;
     }
 }

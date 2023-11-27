@@ -10,7 +10,6 @@
     flex-direction: column;
     justify-content: safe center;
     align-items: safe center;
-
 }
 
 .hobbyTitle {
@@ -44,5 +43,6 @@
     .hobbyContainer {
         width: 100%;
         height: 93%;
+        overflow: auto;
     }
 }

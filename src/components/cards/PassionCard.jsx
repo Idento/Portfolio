@@ -8,7 +8,7 @@ function PassionCard() {
   return (
     <div className='hobbyContainer'>
       {hobby && Object.entries(hobby).map((v, i) => {
-        return <Card sx={{ marginBottom: '2%' }} key={`hobby ${i}`}>
+        return <Card sx={{ marginBottom: '2%', overflow: "unset", width: "100%" }} key={`hobby ${i}`} className='passionCards'>
           <h3 className='hobbyTitle'>{v[0]}</h3>
           <Divider />
           <p className='hobbyPara'>{v[1]}</p>
