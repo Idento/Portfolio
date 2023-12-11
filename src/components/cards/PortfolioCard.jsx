@@ -73,7 +73,7 @@ export default function PortfolioCard({ text, mobile = false, maxwidth, onmoove 
       }}
       onClick={handleClick}>
 
-      <Card elevation={mobile ? 0 : nameCard[text].zindex} sx={{ color: theme.palette.primary.light, minWidth: "100%", minHeight: '100%', borderRadius: mobile ? 0 : 4, height: '100%', width: '100%' }}>
+      <Card elevation={mobile ? 0 : nameCard[text].zindex} sx={{ color: theme.palette.primary.light, minWidth: "100%", minHeight: '100%', borderRadius: mobile ? 0 : 1, height: '100%', width: '100%' }}>
         <div
           position='relative'
           className='pageBar'
