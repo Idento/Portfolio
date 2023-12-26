@@ -39,7 +39,6 @@
 
     .appbar,
     .MuiBottomNavigation-root {
-        gap: 3%;
         top: auto;
         bottom: 0;
         display: flex;

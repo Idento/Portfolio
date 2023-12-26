@@ -16,6 +16,7 @@ import { Alert, Badge, BottomNavigation, BottomNavigationAction, IconButton, Sna
 import { useTheme } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
 import { useDrop } from "react-dnd";
+import { Info } from "@mui/icons-material";
 
 
 
@@ -25,9 +26,11 @@ export const APPSICON = {
   'Parcours': <School sx={{ fontSize: 40 }} />,
   "Centre d'intérêt": <Games sx={{ fontSize: 40 }} />,
   'Présentation': <Portrait sx={{ fontSize: 40 }} />,
-  'Projets': <ViewKanban sx={{ fontSize: 40 }} />
+  'Projets': <ViewKanban sx={{ fontSize: 40 }} />,
+  "A Propos": <Info sx={{ fontSize: 40 }} />
 }
 
+const numberOfPage = Object.keys(APPSICON).length
 
 export default function SinglePageApp() {
   const page = useSelector((state) => state.card)
@@ -115,7 +118,7 @@ export default function SinglePageApp() {
     } else {
       setIsMobile(false)
       if (!maxCoord || maxCoord.maxw >= maxwidth - 100 || maxCoord.maxw <= maxwidth + 100) {
-        dispatch(setRandomCoordinates({ coordinates: setCoord(maxwidth, maxheight) }))
+        dispatch(setRandomCoordinates({ coordinates: setCoord(maxwidth, maxheight, numberOfPage) }))
       }
     }
     if (Object.keys(data).length === 0) {
@@ -154,7 +157,7 @@ export default function SinglePageApp() {
       })}
 
       <BottomNavigation
-        sx={{ backgroundColor: theme.palette.primary.main }}
+        sx={{ backgroundColor: theme.palette.primary.main, overflowY: 'auto', flexShrink: '0', boxSizing: 'border-box' }}
         onChange={handleChangeBottomNav}
         showLabels={false}
         className="appbar">
@@ -164,7 +167,7 @@ export default function SinglePageApp() {
             showLabel={false}
             value={'home'}
             icon={<Home sx={{ fontSize: 35, color: 'white' }} />}
-            sx={{ padding: 0, margin: 0, minHeight: '100%', minWidth: '50px', maxWidth: '50px' }} />
+            sx={{ padding: 0, margin: "0 10px 0 10px", minHeight: '100%', minWidth: '50px', maxWidth: '50px' }} />
           : null}
         {page && Object.entries(page).map((v, i) => {
           if (v[1].openedWindow) {

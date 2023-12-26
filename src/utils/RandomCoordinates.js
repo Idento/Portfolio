@@ -1,5 +1,5 @@
 
-export function setCoord(maxw, maxh) {
+export function setCoord(maxw, maxh, numberOfPages) {
     const settingcoord = [];
     const gridSize = 100;
 
@@ -8,7 +8,7 @@ export function setCoord(maxw, maxh) {
     let maxheight = maxh;
 
     // Génère 6 paires de coordonnées non chevauchantes
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < numberOfPages; i++) {
         const newCoordinates = generateNonOverlappingCoordinates(settingcoord, gridSize, maxwidth, maxheight);
         settingcoord.push(newCoordinates);
     }
