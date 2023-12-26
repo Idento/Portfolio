@@ -96,9 +96,36 @@
     .courseContainer {
         min-width: 100%;
         height: 100%;
+        padding: 2% 0 5% 0;
+        overflow: auto;
     }
 
     .intitulerTitle::after {
         left: -15px;
+    }
+
+    .underAccordion {
+        margin: 0;
+        padding: 0;
+    }
+
+    .accordion {
+        width: 97%;
+    }
+
+    .timeline {
+        width: 100%;
+        height: 100%;
+        overflow: unset;
+        line-height: 22px;
+        border: none;
+        padding: 0%;
+        overflow: auto;
+    }
+
+    .intitulerTitle::after {
+        width: 0;
+        border: none;
+        left: -16px;
     }
 }
