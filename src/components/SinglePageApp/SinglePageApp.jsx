@@ -135,7 +135,7 @@ export default function SinglePageApp() {
   useEffect(() => {
     const sum = Object.values(openedPage).reduce((acc, currentValue) => acc + currentValue, 0);
 
-    if (sum === 6) {
+    if (sum === Object.keys(openedPage).length) {
       setOpen(true);
     }
   }, [openedPage]);
@@ -191,7 +191,7 @@ export default function SinglePageApp() {
         action={actionSnackBar}
       >
         <Alert onClose={handleClose} severity="success">
-          "Merci d'avoir parcouru mon portfolio jusqu'au bout !"
+          Merci d'avoir parcouru mon portfolio jusqu'au bout !
         </Alert>
       </Snackbar>
 

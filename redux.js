@@ -86,7 +86,8 @@ const allPageSlice = createSlice({
         'Parcours': false,
         "Centre d'intérêt": false,
         'Présentation': false,
-        'Projets': false
+        'Projets': false,
+        'A Propos': false
     },
     reducers: {
         setTrue: (state, action) => {

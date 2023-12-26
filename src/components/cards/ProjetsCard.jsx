@@ -9,7 +9,7 @@ import { Link } from '@mui/icons-material'
 function ProjetsCard() {
   const data = useSelector((state) => state.data['Projets'])
   const [projects, setProjects] = useState()
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState();
   const [openDialog, setOpenDialog] = useState(null)
 
   function handleCardClick(va) {
@@ -35,6 +35,11 @@ function ProjetsCard() {
       getProjects[v[1].contexte].push(v[1])
     })
     setProjects(getProjects)
+
+    setTimeout(() => {
+      setValue(0)
+    }, 500)
+
   }, [])
 
   return (
