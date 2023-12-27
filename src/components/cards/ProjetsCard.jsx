@@ -9,7 +9,7 @@ import { Link } from '@mui/icons-material'
 function ProjetsCard() {
   const data = useSelector((state) => state.data['Projets'])
   const [projects, setProjects] = useState()
-  const [value, setValue] = useState();
+  const [value, setValue] = useState(null);
   const [openDialog, setOpenDialog] = useState(null)
 
   function handleCardClick(va) {
