@@ -109,6 +109,10 @@
         height: 100%;
     }
 
+    .introduceCard {
+        width: 90%;
+    }
+
     .introducingText {
         margin-top: 5%;
         letter-spacing: 0.1em;
