@@ -98,6 +98,88 @@
                 "/assets/Websites/Horizon/Third.jpg",
                 "/assets/Websites/Horizon/fourth.jpg"
             ]
+        },
+        {
+            "id": "6",
+            "Titre": "Print-it",
+            "description": "Intégration d'un carroussel a une page web existante",
+            "imageURL": "/assets/Websites/print-it/Capture1.jpg",
+            "tags": [
+                "HTML",
+                "CSS",
+                "Javascript"
+            ],
+            "contexte": "Formation",
+            "link": "https://github.com/MaxTso/Print-it.git",
+            "date": "mai 2023",
+            "Images": [
+                "/assets/Websites/print-it/Capture1.jpg",
+                "/assets/Websites/print-it/Capture2.jpg"
+            ]
+        },
+        {
+            "id": "7",
+            "Titre": "Nina carducci",
+            "description": "Optimisation du SEO de la page ainsi que des éléments dans le document (photo, balises html)",
+            "imageURL": "/assets/Websites/NinaCarducci/Capture1.jpg",
+            "tags": [
+                "HTML",
+                "CSS",
+                "Javascript",
+                "SEO"
+            ],
+            "contexte": "Formation",
+            "link": "https://github.com/MaxTso/optimize-nina-carducci.git",
+            "date": "Septembre 2023",
+            "Images": [
+                "/assets/Websites/NinaCarducci/Capture1.jpg",
+                "/assets/Websites/NinaCarducci/Capture2.jpg"
+            ]
+        },
+        {
+            "id": "8",
+            "Titre": "724Events",
+            "description": "Reprise et debug de l’intégration du site web one-page d’une agence d’événementiel a la suite dudépart d’un développeur",
+            "imageURL": "/assets/Websites/724Events/Capture1.jpg",
+            "tags": [
+                "HTML",
+                "SASS",
+                "Javascript",
+                "REACT"
+            ],
+            "contexte": "Formation",
+            "link": "https://github.com/MaxTso/debuggez-site-react.git",
+            "date": "Septembre 2023",
+            "Images": [
+                "/assets/Websites/724Events/Capture1.jpg",
+                "/assets/Websites/724Events/Capture2.jpg",
+                "/assets/Websites/724Events/Capture3.jpg"
+            ]
+        },
+        {
+            "id": "9",
+            "Titre": "Argent-Bank",
+            "description": "Mise en place du tableau debord des utilisateurs pour un site web d’une banque et suggestion des prochaines routes API pour l'équipe backend",
+            "imageURL": "/assets/Websites/ArgentBank/Capture1.jpg",
+            "tags": [
+                "HTML",
+                "SASS",
+                "Javascript",
+                "REACT",
+                "ReduxTK"
+            ],
+            "contexte": "Formation",
+            "link": "https://github.com/MaxTso/ArgentBank-Frontend",
+            "date": "novembre 2023",
+            "Images": [
+                "/assets/Websites/ArgentBank/Capture1.jpg",
+                "/assets/Websites/ArgentBank/Capture2.jpg",
+                "/assets/Websites/ArgentBank/Capture3.jpg",
+                "/assets/Websites/ArgentBank/Capture4.jpg",
+                "/assets/Websites/ArgentBank/Capture5.jpg",
+                "/assets/Websites/ArgentBank/Capture6.jpg",
+                "/assets/Websites/ArgentBank/Capture7.jpg"
+            ]
         }
     ],
     "Presentation": {

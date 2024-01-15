@@ -63,9 +63,9 @@ function ProjetsCard() {
                     <h4 className='title__card'>{va.Titre}</h4>
                     <p className='description__card'>{va.description}</p>
                     <span className='Date'> Date de creation: {va.date}</span>
-                    <Stack direction={'row'} display={'flex'} gap={'2%'} justifyContent={'flex-start'}>
+                    <Stack direction={'row'} display={'flex'} gap={'2%'} justifyContent={'center'} flexWrap={'wrap'} >
                       {va.tags.map((val, ind) => {
-                        return <Chip label={`${val}`} key={`chip${ind}`} sx={{ padding: "0 2%" }} />
+                        return <Chip label={`${val}`} key={`chip${ind}`} sx={{ padding: "0 2%", margin: '1% 0' }} />
                       })}
                       {va.link ?
                         <Chip
@@ -75,7 +75,7 @@ function ProjetsCard() {
                           label="Lien"
                           key={`chipLink ${id}`}
                           icon={<Link />}
-                          sx={{ cursor: 'pointer', marginLeft: 'auto' }}
+                          sx={{ cursor: 'pointer', margin: '2% 0', flex: '1 0 100%', order: 1, borderRadius: 2 }}
                           target='_blank'
                           rel='noopener noreferrer' />
                         : null}
