@@ -3,11 +3,11 @@ export function setCoord(maxw, maxh, numberOfPages) {
     const settingcoord = [];
     const gridSize = 100;
 
-    // Imaginons que ces constantes représentent la taille maximale de l'espace
+    // représentent la taille maximale de l'espace
     let maxwidth = maxw;
     let maxheight = maxh;
 
-    // Génère 6 paires de coordonnées non chevauchantes
+    // Génère 6 paires de coordonnées uniques
     for (let i = 0; i < numberOfPages; i++) {
         const newCoordinates = generateNonOverlappingCoordinates(settingcoord, gridSize, maxwidth, maxheight);
         settingcoord.push(newCoordinates);
@@ -16,7 +16,7 @@ export function setCoord(maxw, maxh, numberOfPages) {
 
 }
 
-// Fonction pour générer des coordonnées non chevauchantes
+// Fonction pour générer des coordonnées uniques
 function generateNonOverlappingCoordinates(existingCoords, gridSize, maxwidth, maxheight) {
     const maxX = maxwidth - gridSize;
     const maxY = maxheight - gridSize;
@@ -43,5 +43,3 @@ function isTooClose(coordA, coordB, minDistance) {
     // Vérifie si les coordonnées sont trop proches sur les axes X ou Y
     return distanceX < minDistance || distanceY < minDistance;
 }
-// / gridSize
-// * gridSize;
