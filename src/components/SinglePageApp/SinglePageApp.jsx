@@ -11,7 +11,7 @@ import File from "../File/File";
 import './styles/SinglePageApp.css'
 import { setCoordinatesPages, setCoordinates, setOnTop, setRandomCoordinates, toggleMinimized } from "../../../redux";
 import { setCoord } from "../../utils/RandomCoordinates";
-import PortfolioCard from "../cards/PortfolioCard";
+import PortfolioCard from "../cards/Card.jsx";
 import { Alert, Badge, BottomNavigation, BottomNavigationAction, IconButton, Snackbar } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";

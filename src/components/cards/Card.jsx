@@ -1,11 +1,11 @@
 import './styles/CardStyle.css'
 import React, { useCallback, useEffect, useState } from 'react'
-import { MemoizedCompetenceCard } from './CompetenceCard'
+import { MemoizedCompetenceCard } from './SkillCard'
 import { MemoizedContactCard } from './ContactCard'
-import { MemoizedParcoursCard } from './ParcoursCard'
-import { MemoizedPassionCard } from './PassionCard'
+import { MemoizedParcoursCard } from './CourseCard'
+import { MemoizedPassionCard } from './HobbyCard'
 import { MemoizedPresentationCard } from './PresentationCard'
-import { MemoizedProjectCard } from './ProjetsCard'
+import { MemoizedProjectCard } from './ProjectsCard'
 import { ButtonGroup, Card, IconButton } from '@mui/material'
 import { APPSICON } from '../SinglePageApp/SinglePageApp'
 import { Close, Minimize } from '@mui/icons-material'
@@ -13,7 +13,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setOnTop, setToggleWindow, setZIndex, toggleMinimized, setCoordinatesPages } from "../../../redux";
 import { useTheme } from '@emotion/react'
 import { useDrag } from 'react-dnd'
-import { MemoizedAboutCard } from './aboutCard'
+import { MemoizedAboutCard } from './AboutCard'
 
 export default function PortfolioCard({ text, mobile = false, maxwidth, onmoove }) {
   const nameCard = useSelector((state) => state.card)
