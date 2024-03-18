@@ -13,7 +13,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setOnTop, setToggleWindow, setZIndex, toggleMinimized, setCoordinatesPages } from "../../../redux";
 import { useTheme } from '@emotion/react'
 import { useDrag } from 'react-dnd'
-import { MemoizedAboutCard } from './AboutCard'
+import { MemoizedAboutCard } from './AboutCard.jsx'
 
 export default function PortfolioCard({ text, mobile = false, maxwidth, onmoove }) {
   const nameCard = useSelector((state) => state.card)
