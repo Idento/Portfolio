@@ -3,7 +3,7 @@ import './styles/AboutStyle.css'
 import React from 'react'
 import { Launch } from '@mui/icons-material'
 
-function aboutCard() {
+function AboutCard() {
     return (
         <div className='aboutContainer'>
             <Card className='AboutData' sx={{ overflow: 'auto' }}>
@@ -74,5 +74,5 @@ function aboutCard() {
     )
 }
 
-export const MemoizedAboutCard = React.memo(aboutCard)
+export const MemoizedAboutCard = React.memo(AboutCard)
 
