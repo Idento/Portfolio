@@ -276,6 +276,10 @@
         "Discord": {
             "url": "https://discord.gg/KN3h3u7Nx6",
             "icon": "/assets/discord.svg"
+        },
+        "X": {
+            "url": "https://x.com/maximetsdev",
+            "icon": "/assets/x.svg"
         }
     }
 }

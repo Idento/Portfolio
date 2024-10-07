@@ -63,7 +63,7 @@ function ContactCard() {
       </Divider>
       <div className='social__container'>
         {data && Object.entries(data).map((v, i) => {
-          return <Card sx={{ display: 'flex', height: "50px", width: '50px', borderRadius: '50%', position: 'relative' }} elevation={3} key={`c${i}`}>
+          return <Card sx={{ display: 'flex', height: "50px", width: '50px', borderRadius: '50%', position: 'relative', flex: '0 0 auto' }} elevation={3} key={`c${i}`}>
             <a href={v[1].url} target='_blank' className='linkToSocial' rel='noopener noreferrer' />
             <img src={v[1].icon} alt={`icon ${v[0].toString()}`} className='iconContact' />
           </Card>
