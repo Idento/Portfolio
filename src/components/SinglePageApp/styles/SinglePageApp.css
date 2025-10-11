@@ -34,6 +34,27 @@
     background-color: rgba(255, 255, 255, 0.473);
 }
 
+.oldVersion {
+    width: 100%;
+    background-color: red;
+    color: white;
+    padding: 5px;
+    display: flex;
+    justify-items: center;
+    z-index: 999;
+}
+
+.linkToOtherPortfolio {
+    text-decoration: none;
+    color: white;
+    width: 100%;
+    text-align: center;
+}
+
+.linkToOtherPortfolio:visited {
+    text-decoration: none;
+    color: white;
+}
 
 @media (min-width: 320px) and (max-width:700px) {
 

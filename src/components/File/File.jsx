@@ -15,7 +15,7 @@ export default function File({ children, text, x, y, animdelay }) {
   }))
   const [animationEnded, setAnimationEnded] = useState(false)
   const [transitionEnded, setTransitionEnded] = useState(false)
-  const firstwindows = ['Présentation', 'Projets', 'Compétence']
+  const firstwindows = []
 
 
 

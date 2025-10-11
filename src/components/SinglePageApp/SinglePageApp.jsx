@@ -143,6 +143,11 @@ export default function SinglePageApp() {
 
   return (
     <div className="maindiv" ref={drop}>
+      <div className="oldVersion">
+        <a href="https://maximets.webelisys.fr/" target="_blank" rel="noopener noreferrer" className="linkToOtherPortfolio">
+          Ceci est l'ancienne version de mon portfolio, cliquez ici pour aller vers la nouvelle version
+        </a>
+      </div>
       {Object.entries(APPSICON).map((v, i) => {
         delay += 500
         return <File text={v[0]} key={i} x={!isMobile ? coord[v[0]].x : 'auto'} y={!isMobile ? coord[v[0]].y : 'auto'} animdelay={delay}>
